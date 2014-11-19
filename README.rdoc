@@ -24,5 +24,18 @@ Things you may want to cover:
 * ...
 
 
+Must include a README with the following:
+Description: A paragraph elevator pitch of your project
+Another Link to Heroku hosted project
+Wireframes
+This is a good opportunity to map out what will require AJAX
+User Stories, Site Flow, or equivalent for MVP
+An ERD
+API's used
+Scope
+Wishlist
+Contributors
+
+
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
