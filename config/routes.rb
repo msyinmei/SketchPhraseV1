@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  root 'views#login'
+
+  get 'login', to: 'views#login', as: 'login'
+
+  get 'welcome', to: 'views#welcome'
+
+  get 'logout', to: 'views#logout'
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
