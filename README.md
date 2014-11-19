@@ -33,6 +33,9 @@ Site Flow:
 - (result) all players have played, entire chain is viewable, and shareable via fb or twilio 
 
 
+ERD: 
+Our database setup
+https://s3.amazonaws.com/uploads.hipchat.com/39979/1252685/6dMW13EFReUMt6L/Project2.jpg
 
 API's used:
 facebook
