@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'views#login'
-
-  get 'login', to: 'views#login', as: 'login'
-
-  get 'welcome', to: 'views#welcome'
-
-  get 'logout', to: 'views#logout'
+root 'access#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

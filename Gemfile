@@ -31,6 +31,9 @@ gem 'omniauth-facebook'
 # Pry
 gem 'pry-rails'
 
+# Gon to embed Rails in JS
+gem 'gon'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
