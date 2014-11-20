@@ -16,8 +16,6 @@
 //= require_tree .
 //= require paper
 
-
-<script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -97,4 +95,5 @@
         //may be able to redirect instead
     });
   }
-</script>
+
+

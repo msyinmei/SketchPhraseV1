@@ -51,12 +51,9 @@
   the FB.login() function when clicked.
 -->
 
-<div class="container-fluid">
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button autologoutlink="true" scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
 <div id="status">
-</div>
-
 </div>

@@ -21,25 +21,17 @@
 </head>
 <body>
 
-<script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : gon.fbid,
-          xfbml      : true,
-          version    : 'v2.1'
-        });
-      };
+<!-- Facebook authorization -->
+<script type="javascript" src="/assets/access.js"></script>
 
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
+<!-- Paper.js script for canvas -->    +
+<script type="text/paperscript" src="/assets/games.js" canvas="myCanvas">
+</script>
 
 <%= yield %>
+
+
+
 
 </body>
 </html>
