@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 
+<%= FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+}); %>
+
+
 <!-- <body id="linearBg2"> -->
 <body id="gradient-background">
   <div class="container-fluid">
