@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'result/index'
+  get 'results/index'
 
-  get 'game/index'
+  get 'games/index'
 
 root 'access#index'
 
