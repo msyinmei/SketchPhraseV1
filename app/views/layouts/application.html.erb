@@ -13,17 +13,25 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-<!-- Paper.js script for canvas -->
-    <script type="text/paperscript" src="/assets/games.js" canvas="myCanvas">
-	</script>
-<!-- Jquery -->
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+
+<!-- Meta tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 </head>
 <body>
 
+<!-- Facebook authorization -->
+<script type="javascript" src="/assets/access.js"></script>
+
+<!-- Paper.js script for canvas -->    +
+<script type="text/paperscript" src="/assets/games.js" canvas="myCanvas">
+</script>
+
 <%= yield %>
+
+
+
 
 </body>
 </html>
