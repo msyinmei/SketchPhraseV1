@@ -1,13 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sketch Phrase!</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
+  <link href='http://fonts.googleapis.com/css?family=Pacifico|Comfortaa' rel='stylesheet' type='text/css'>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-<!-- Button for Eraser and Stroke width -->
-<div>
-	<button type="button" class="btn btn-default" id="eraser">Erase</button>
-	<button type="button" class="btn btn-default" id="small">Small</button>
-	<button type="button" class="btn btn-default" id="medium">Medium</button>
-	<button type="button" class="btn btn-default" id="large">Large</button>
-</div>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+	<div class="container-fluid">
+		<!-- Button for Eraser and Stroke width -->
+		<div class="row">
+			<div class="col-xs-12">
+				<button type="button" id="eraser" class="col-xs-3 top-nav button">Erase</button>
+				<button type="button" id="small" class="col-xs-3 top-nav button">Small</button>
+				<button type="button" id="medium" class="col-xs-3 top-nav button">Medium</button>
+				<button type="button" id="large" class="col-xs-3 top-nav button">Large</button>
+			</div>
+		</div>
 
-<!-- Canvas for Drawing -->
-<canvas id="myCanvas" data-paper-resize="true"" keepalive="true"></canvas>
+	<!-- Canvas for Drawing -->
+		<div class="row">
+			<canvas id="myCanvas" data-paper-resize="true" keepalive="true"></canvas>
+		</div>
+	</div>
+</body>
+</html>
 
