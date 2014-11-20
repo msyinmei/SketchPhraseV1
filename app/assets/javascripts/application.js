@@ -10,14 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 //= require paper
 
 
-<script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -97,4 +96,3 @@
         //may be able to redirect instead
     });
   }
-</script>
