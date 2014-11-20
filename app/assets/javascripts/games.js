@@ -45,7 +45,7 @@ $( "#eraser" ).toggle(function() {
 });
 
 
-// Click listeners for stoke width buttons 
+// Click listeners for stroke width buttons 
 $('#small').click(function(){
 	width = 1;
 });
