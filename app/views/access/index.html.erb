@@ -1,7 +1,6 @@
 <h1>Access#index</h1>
 <p>Find me in app/views/access/index.html.erb</p>
 
-
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -79,6 +78,7 @@
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
+        //may be able to redirect instead
     });
   }
 </script>
