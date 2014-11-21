@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -111,7 +111,3 @@
         //may be able to redirect instead
     });
   }
-
-
-
-

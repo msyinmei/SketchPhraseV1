@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-
-<%= FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-}); %>
-
-
-<!-- <body id="linearBg2"> -->
-<body id="gradient-background">
-  <div class="container-fluid">
+<div id="gradient-background" class="container-fluid">
   <div class="row">
     <header class="col-xs-12">
       <h1>Sketch Phrase!</h1>
@@ -42,10 +33,12 @@
   </div>
   <div class="row">
     <div class="fixed-bottom col-xs-12">
-      <div class="player-count col-xs-12">
-        <h3>5 Players</h3>
+      <div class="col-xs-12">
+        <h3 class="player-count">5 players</h3>
       </div>
-      <button type="button" class="col-xs-offset-3 col-xs-6">BEGIN!</button>
+      <div class="col-xs-12">
+        <%= link_to "START!", games_path, class: "button" %>
+      </div> 
     </div>
   </div>
 </div>
@@ -60,5 +53,4 @@
 <fb:login-button autologoutlink="true" scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
-<div id="status">
-</div>
+<div id="status"></div>
