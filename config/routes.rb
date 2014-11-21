@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'results/index'
 
-  get 'games', to: 'games#index'
+  get 'games', to: 'games#index', as: 'games'
 
 root 'access#index'
 

@@ -4,24 +4,20 @@
   <title>SketchPhraseV1</title>
 
 <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
-	  <script type="text/paperscript" src="/assets/games.js" canvas="myCanvas">
-	</script>
+<!-- Google Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Pacifico|Comfortaa' rel='stylesheet' type='text/css'>
 
   <%= include_gon %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' => true %>
   <%= csrf_meta_tags %>
 
-
-
-<!-- Meta tags -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-
+<!-- Meta tags, that disable pinching and zooming -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 </head>
 <body>
@@ -29,13 +25,11 @@
 <!-- Facebook authorization -->
 <script type="javascript" src="/assets/access.js"></script>
 
-<!-- Paper.js script for canvas -->    +
+<!-- Paper.js script for canvas -->
+<script type="text/paperscript" src="/assets/games.js" canvas="myCanvas"></script>
 
 
 <%= yield %>
-
-
-
 
 </body>
 </html>
