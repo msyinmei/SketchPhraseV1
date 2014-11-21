@@ -22,6 +22,8 @@ body {
 	font-family: 'Comfortaa', Helvetica, sans-serif;
 }
 
+
+
 .fixed-top {
 	text-align: center;
 	position: fixed;
@@ -113,3 +115,45 @@ header {
   /* Opera 11.10+ */
   background: -o-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
 }
+
+.selected {
+	  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#clear.animate {
+	animation-name: ground;
+	animation-duration: 5s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;	
+	animation-direction: normal;
+	animation-delay: 0;
+	animation-play-state: running;
+	animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes ground {
+
+	0% {
+		background-color: #6c5228;
+	}
+	
+	33% {
+		background-color: #48a037;
+	}
+
+	66% {
+		background-color: #48a037;
+	}
+
+	100% {
+		background-color: #6c5228;
+	}
+
+}
+
+
+
+
+
+
+
