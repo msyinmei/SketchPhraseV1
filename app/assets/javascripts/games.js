@@ -24,6 +24,8 @@ $(window).load(function(){
   	var big_height = (win_y * 5);
   	$('#myCanvas').attr("height", big_height);
   	$('#myCanvas').height(big_height);
+  	$('#myCanvas').attr("width", win_x);
+  	$('#myCanvas').width(win_x);
 
 })();
 
@@ -85,6 +87,8 @@ $(window).resize(function(){
 	coord = $("#myCanvas").position(); //returns top left coordinates
 	top = $(window).scrollTop();
 	left = coord.left;
+	$('#myCanvas').attr("width", win_x);
+  	$('#myCanvas').width(win_x);
 	console.log(win_y);
 	console.log(win_x);
 	console.log(top, left);
@@ -105,7 +109,7 @@ nextTurn = function() {
 
 $('#clear').click(function() {
 	$.when(nextTurn()).done(function(){
-		// document.getElementById('myCanvas').click();
+		
 		console.log("Done!");
 	});
 });
