@@ -99,7 +99,7 @@ nextTurn = function() {
 	var topLeft = new paper.Point(0, top); //creates the top left corner of rectangle
 	var rectSize = new paper.Size(win_x, win_y); 
 	var rect = new paper.Path.Rectangle(topLeft, rectSize);
-	rect.fillColor = '#FBC6FF';
+	rect.fillColor = '#fffff';
 	console.log(topLeft);
 	console.log(rect); // { x: 10, y: 20, width: 200, height: 100 }
 	console.log(rect.point); // { x: 10, y: 20 }
