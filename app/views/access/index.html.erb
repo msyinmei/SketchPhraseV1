@@ -1,4 +1,12 @@
-<div id="gradient-background" class="container-fluid">
+
+
+<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+
+    <div id="gradient-background" class="container-fluid">
   <div class="row">
     <header class="col-xs-12">
       <h1>Sketch Phrase!</h1>
@@ -38,19 +46,10 @@
       </div>
       <div class="col-xs-12">
         <%= link_to "START!", games_path, class: "button" %>
-      </div> 
+        <%= link_to "Sign Out", logout_path, class: "button" %>
+      </div>
     </div>
   </div>
 </div>
 
-<!--
-  Below we include the Login Button social plugin. This button uses
-  the JavaScript SDK to present a graphical Login button that triggers
-  the FB.login() function when clicked.
--->
 
-
-<fb:login-button autologoutlink="true" scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
-<div id="status"></div>

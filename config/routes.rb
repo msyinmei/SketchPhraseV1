@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+
+  root 'access#index', as: 'root'
+
   get 'results/index'
 
   get 'games', to: 'games#index', as: 'games'
 
-root 'access#index'
-
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get 'logout', to: 'sessions#logout', as: 'logout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
