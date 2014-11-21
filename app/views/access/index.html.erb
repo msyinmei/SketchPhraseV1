@@ -6,10 +6,6 @@
   the FB.login() function when clicked.
 -->
 
-<div id="user_nav">
-  <% if current_user %>
-    Welcome, <%= current_user.name %>!
-
     <div id="gradient-background" class="container-fluid">
   <div class="row">
     <header class="col-xs-12">
@@ -55,15 +51,5 @@
     </div>
   </div>
 </div>
-  <% else %>
 
-      <div id="gradient-background" class="container-fluid">
-  <div class="row">
-
-    <%= link_to "Sign In", "/auth/facebook", class: "button" %>
-    </div>
-    </div>
-
-  <% end %>
-</div>
 
