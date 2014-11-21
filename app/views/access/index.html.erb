@@ -50,12 +50,20 @@
       </div>
       <div class="col-xs-12">
         <%= link_to "START!", games_path, class: "button" %>
+        <%= link_to "Sign Out", logout_path, class: "button" %>
       </div>
     </div>
   </div>
 </div>
   <% else %>
-    <%= link_to "Sign in with FB", "/auth/facebook" %>
+
+      <div id="gradient-background" class="container-fluid">
+  <div class="row">
+
+    <%= link_to "Sign In", "/auth/facebook", class: "button" %>
+    </div>
+    </div>
+
   <% end %>
 </div>
 
