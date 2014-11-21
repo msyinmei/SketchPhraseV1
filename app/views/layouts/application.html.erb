@@ -8,6 +8,9 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
+	  <script type="text/paperscript" src="/assets/games.js" canvas="myCanvas">
+	</script>
+
   <%= include_gon %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -18,6 +21,8 @@
 <!-- Meta tags -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+
+
 </head>
 <body>
 
@@ -25,8 +30,7 @@
 <script type="javascript" src="/assets/access.js"></script>
 
 <!-- Paper.js script for canvas -->    +
-<script type="text/paperscript" src="/assets/games.js" canvas="myCanvas">
-</script>
+
 
 <%= yield %>
 
