@@ -56,7 +56,14 @@
   </div>
 </div>
   <% else %>
-    <%= link_to "Sign in with FB", "/auth/facebook" %>
+
+      <div id="gradient-background" class="container-fluid">
+  <div class="row">
+
+    <%= link_to "Sign In", "/auth/facebook", class: "button" %>
+    </div>
+    </div>
+
   <% end %>
 </div>
 
