@@ -12,16 +12,17 @@
 <link href='http://fonts.googleapis.com/css?family=Pacifico|Comfortaa' rel='stylesheet' type='text/css'>
 
   <%= include_gon %>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => false %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
   <%= csrf_meta_tags %>
 
 <!-- Meta tags, that disable pinching and zooming -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 
-<!-- Paper.js script for canvas -->
+<!-- games js -->
 <script type="text/paperscript" src="/assets/games.js" canvas="myCanvas"></script>
+
 
 </head>
 <body>
@@ -32,6 +33,7 @@
 
 
 <%= yield %>
+
 
 </body>
 </html>
