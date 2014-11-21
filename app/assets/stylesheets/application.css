@@ -22,6 +22,18 @@ body {
 	font-family: 'Comfortaa', Helvetica, sans-serif;
 }
 
+.fixed-top {
+	text-align: center;
+	position: fixed;
+	top: 0px;
+	float: none;
+}
+
+.fixed-bottom {
+	text-align: center;
+	position: fixed;
+	bottom: 15px;
+}
 
 .player-count {
 	margin: auto;
@@ -79,18 +91,6 @@ header {
 	text-align: center;
 }
 
-.fixed-top {
-	text-align: center;
-	position: fixed;
-	top: 0px;
-	float: none;
-}
-
-.fixed-bottom {
-	text-align: center;
-	position: fixed;
-	bottom: 15px;
-}
 
 
 #gradient-background {
