@@ -1,20 +1,27 @@
 
 
 <div class="container-fluid">
-	<!-- Button for Eraser and Stroke width -->
+<!-- Buttons for eraser, stroke width, and clear -->
 	<div class="row">
-		<div class="col-xs-12 fixed-top">
-			<button type="button" id="eraser" class="col-xs-2 draw">Erase</button>
-			<button type="button" id="small" class="col-xs-2 draw">Small</button>
-			<button type="button" id="medium" class="col-xs-2 draw">Medium</button>
-			<button type="button" id="large" class="col-xs-2 draw">Large</button>
-			<button type="button" id="clear" class="col-xs-2 draw">Clear</button>
-
+		<div class="fixed-top col-xs-12">
+			<button type="button" id="eraser" class="col-xs-2 draw"><%= image_tag("icons/sketch_phrase_eraser.svg") %></button>
+			<button type="button" id="small" class="col-xs-2 draw"><%= image_tag("icons/sketch_phrase_pencil_small.svg") %></button>
+			<button type="button" id="medium" class="col-xs-2 draw"><%= image_tag("icons/sketch_phrase_pencil_medium.svg") %></button>
+			<button type="button" id="large" class="col-xs-2 draw"><%= image_tag("icons/sketch_phrase_pencil_large.svg") %></button>
+			<button type="button" id="clear" class="col-xs-4 draw">Clear</button>
+			<div>
+			</div>
 		</div>
 	</div>
-<!-- Canvas for Drawing -->
+<!-- Canvas for drawing -->
 	<div class="row">
 		<canvas id="myCanvas" width="500" height="500" keepalive="true"></canvas>
 	</div>
 
-	
+<!-- Button for done/next turn -->
+	<div class="row">
+		<div class="fixed-bottom col-xs-12">
+			<%= link_to "DONE", games_path, class: "button" %>
+		</div>
+	</div> 
+</div>
