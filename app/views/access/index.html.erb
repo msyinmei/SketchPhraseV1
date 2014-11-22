@@ -6,6 +6,8 @@
   the FB.login() function when clicked.
 -->
 
+
+<!-- THIS VERSION ONLY WORKS FOR YIN OR SOMETHING -->
 <div id="user_nav">
   <% if current_user %>
     Welcome, <%= current_user.name %>!
@@ -13,7 +15,7 @@
     <div id="gradient-background" class="container-fluid">
   <div class="row">
     <header class="col-xs-12">
-      <h1 id="animated-example" class="animated tada">Sketch Phrase!</h1>
+        <h1>Sketch Phrase!</h1>
     </header>
   </div>
   <div class="row">
@@ -28,18 +30,6 @@
         <li>Step 2</li>
         <li>Step 3</li>
         <li>Step 4</li>
-        <li>Step 5</li>
-        <li>Step 1</li>
-        <li>Step 2</li>
-        <li>Step 3</li>
-        <li>Step 4</li>
-        <li>Step 5</li>
-        <li>Step 1</li>
-        <li>Step 2</li>
-        <li>Step 3</li>
-        <li>Step 4</li>
-        <li>Step 5</li>
-        <li>Step 1</li>
       </ul>
     </div>
   </div>
@@ -55,61 +45,52 @@
     </div>
   </div>
 </div>
+
   <% else %>
 
-  <div id="gradient-background" class="container-fluid">
-  <div class="row">
-    <%= link_to "Sign In", "/auth/facebook", class: "button" %>
-    Note: This only works for Yin in developer mode. Access game below.
-  </div>
-  </div>
 
-      <div id="gradient-background" class="container-fluid">
-  <div class="row">
-    <header class="col-xs-12">
-      <h1>Sketch Phrase!</h1>
-    </header>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <ul class="col-xs-offset-1 col-xs-11"><h3>How to play:</h3>
-        <li>Step 1</li>
-        <li>Step 2</li>
-        <li>Step 3</li>
-        <li>Step 4</li>
-        <li>Step 5</li>
-        <li>Step 1</li>
-        <li>Step 2</li>
-        <li>Step 3</li>
-        <li>Step 4</li>
-        <li>Step 5</li>
-        <li>Step 1</li>
-        <li>Step 2</li>
-        <li>Step 3</li>
-        <li>Step 4</li>
-        <li>Step 5</li>
-        <li>Step 1</li>
-        <li>Step 2</li>
-        <li>Step 3</li>
-        <li>Step 4</li>
-        <li>Step 5</li>
-        <li>Step 1</li>
-      </ul>
-    </div>
-  </div>
-  <div class="row">
-    <div class="fixed-bottom col-xs-12">
-      <div class="col-xs-12">
-        <h3 class="player-count">5 players</h3>
-      </div>
-      <div class="col-xs-12">
-        <%= link_to "START!", games_path, class: "button" %>
+<!-- THIS IS WHAT ACTUALLY LOADS -->
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <header class="col-xs-12">
+        <h1>Sketch Phrase!</h1>
+      </header>
+      <div>
+        <%= link_to "Sign In", "/auth/facebook", class: "button" %>
+        <!-- Note: This only works for Yin in developer mode. Access game below. -->
         <%= link_to "Sign Out", logout_path, class: "button" %>
       </div>
     </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="col-xs-offset-1 col-xs-11"><h3>How to play:</h3>
+          <li>Step 1</li>
+          <li>Step 2</li>
+          <li>Step 3</li>
+          <li>Step 4</li>
+          <li>Step 5</li>
+          <li>Step 1</li>
+          <li>Step 2</li>
+          <li>Step 3</li>
+          <li>Step 4</li>
+          <li>Step 5</li>
+          <li>Step 1</li>
+          <li>Step 2</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="fixed-bottom col-xs-12">
+        <div class="col-xs-12">
+          <h3 class="player-count">5 players</h3>
+        </div>
+        <div class="col-xs-12">
+          <%= link_to "START!", games_path, class: "button" %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
   <% end %>
 </div>
-
