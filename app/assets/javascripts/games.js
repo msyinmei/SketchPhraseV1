@@ -106,49 +106,69 @@ $(window).resize(function(){
 });
 
 // creates a white rectangle based on the window size to clear the shown canvas
-// nextTurn = function() {
-// 	top = $(window).scrollTop();
-// 	var topLeft = new paper.Point(0, top); //creates the top left corner of rectangle
-// 	var rectSize = new paper.Size(win_x, win_y); 
-// 	var rect = new paper.Path.Rectangle(topLeft, rectSize);
-// 	rect.fillColor = '#fffff';
-// 	console.log(topLeft);
-// 	console.log(rect); // { x: 10, y: 20, width: 200, height: 100 }
-// 	console.log(rect.point); // { x: 10, y: 20 }
-// 	console.log(rect.size);
-// 	console.log("Doing");
-// };
+nextTurn = function() {
+	top = $(window).scrollTop();
+	var topLeft = new paper.Point(0, top); //creates the top left corner of rectangle
+	var rectSize = new paper.Size(win_x, win_y); 
+	var rect = new paper.Path.Rectangle(topLeft, rectSize);
+	rect.fillColor = '#fffff';
+	console.log(topLeft);
+	console.log(rect); // { x: 10, y: 20, width: 200, height: 100 }
+	console.log(rect.point); // { x: 10, y: 20 }
+	console.log(rect.size);
+	console.log("Doing");
+};
 
-// $('#clear').click(function() {
-// 	$(this).toggleClass("animate");
-// 	$.when(nextTurn()).done(function(){
+$('#clear').click(function() {
+	// $(this).toggleClass("animate");
+	$.when(nextTurn()).done(function(){
 	
-// 		console.log("Done!");
+		console.log("Done!");
 
-// 	});
-	
+	});
+});
 
 
-// });
 
-// var input = new CanvasInput({
-//   canvas: document.getElementById('myCanvas'),
-//   fontSize: 18,
-//   x: win_x,
-//   y: win_y,
-//   fontFamily: 'Arial',
-//   fontColor: '#212121',
-//   fontWeight: 'bold',
-//   width: 300,
-//   padding: 8,
-//   borderWidth: 1,
-//   borderColor: '#000',
-//   borderRadius: 3,
-//   boxShadow: '1px 1px 0px #fff',
-//   innerShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)',
-//   placeHolder: 'Enter message here...'
-// });
 
+
+
+var scrollTop;
+var allowScrolling;
+
+
+
+
+
+$(document).ready(function() {
+	console.log("document is ready");
+	scrollTopPos = $( document ).scrollTop();
+    allowScrolling = false;
+    
+    $(window).scroll(function() {
+    	console.log("evaluating scroll state")
+        if(allowScrolling === false) {
+             $( document ).scrollTop( scrollTopPos );
+        }
+    });
+    
+   
+    
+});
+    
+scrollPage = function(){
+    allowScrolling = true;
+    var currentHeight = $(document).scrollTop();
+    var newScrollPos = currentHeight + win_y;
+    $('body').animate({scrollTop: newScrollPos}, 800).promise().done(function(){
+    	noscroll();
+    });
+};
+
+noscroll = function(){
+	scrollTopPos = $(window).scrollTop();
+    allowScrolling = false;
+};
 
 
 
