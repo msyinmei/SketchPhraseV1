@@ -112,5 +112,6 @@
   }
 
   $(window).load(function(){
+    console.log("MODAL!");
     $('#myModal').modal('show');      
     });

@@ -1,8 +1,6 @@
 // modal window appears between turns, on window load
 
-$(window).load(function(){
-  	$('#myModal').modal();      
-    });
+
 
 // $(document).ready(function(){
 // The minimum distance the mouse has to drag

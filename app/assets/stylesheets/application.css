@@ -16,12 +16,20 @@
 
 
 /* overall style for the page */
+/*#gradient-background {*/
 body {
-/*	background-image: url(http://images6.fanpop.com/image/photos/36100000/sleeping-puppy-dogs-36143055-1024-768.jpg);*/
+/*  background: url(images/linear_bg_2.png);*/
+/*  background-repeat: repeat-x;*/
+	background:rgba(120,120,255, 1) no-repeat center center fixed;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from rgba(120, 120, 255, 1)), to rgba(255, 120, 120, 1));
+  background: -webkit-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
+  background: -moz-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
+  background: -ms-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
+  background: -o-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
+  min-height: 100%;
 	color: rgba(255, 255, 255, .9);
 	font-family: 'Comfortaa', Helvetica, sans-serif;
 }
-
 
 
 .fixed-top {
@@ -51,7 +59,7 @@ body {
 	font-size: 40px;
   background-color: rgba(0, 0, 0, 0.2);
   color: rgba(255, 255, 255, 0.9);
-/*  outline: none;*/
+  outline: none;
   border: 2px solid rgba(255, 255, 255, 0.9);
   border-radius: 20px;
 }
@@ -59,17 +67,22 @@ body {
 .button:hover {
 	text-decoration: none;
 	color: rgba(255, 255, 255, 0.9);
+	outline: none;
 }
 
 .button:active {
 	text-decoration: none;
 	color: rgba(255, 255, 255, 0.9);
+	outline: none;
 }
 
 button:focus {
 	outline: none;
 }
 
+button:active {
+	outline: none;
+}
 
 
 img {
@@ -88,10 +101,16 @@ img {
   border-radius: 20px;
 }
 
-button:active {
+button.draw:active {
 	font-size: 23px;
 	outline: none;
 	border: none;
+}
+#myModal.modal {
+	background-color: rgba(0, 0, 0, 0.8);
+	text-align: center;
+	/*width: 100%;*/
+	float: none;
 }
 
 li {
@@ -103,21 +122,6 @@ header {
 	font-family: 'Pacifico', cursive;
 	margin: auto;
 	text-align: center;
-}
-
-
-
-/*#gradient-background {*/
-body {
-/*  background: url(images/linear_bg_2.png);*/
-/*  background-repeat: repeat-x;*/
-	background:rgba(120,120,255, 1) no-repeat center center fixed;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from rgba(120, 120, 255, 1)), to rgba(255, 120, 120, 1));
-  background: -webkit-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
-  background: -moz-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
-  background: -ms-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
-  background: -o-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
-  min-height: 100%;
 }
 
 
