@@ -8,7 +8,7 @@ var win_x = $(window).width();
 var coord;
 var top;
 var left;
-
+var players = 5;
 paper.tool.minDistance = 10;
 
 // takes cordinates of top left corner and calculates it again when the widow
@@ -17,6 +17,7 @@ $(window).load(function(){
 	coord = $("#myCanvas").position();
 	top = $(window).scrollTop();
 	left = coord.left;
+	yo();
 });
 
 
@@ -24,7 +25,7 @@ $(window).load(function(){
 // calc window height and sets canvas to windwo height times players in game
 (function() {
 	console.log("THIS IS WIN Y");
-  	var big_height = (win_y * 5);
+  	var big_height = (win_y * players);
   	$('#myCanvas').attr("height", big_height);
   	$('#myCanvas').height(big_height);
   	$('#myCanvas').attr("width", win_x);
@@ -139,20 +140,23 @@ $(document).ready(function() {
 var clicks = 0;
 
 scrollPage = function(){
-	if (clicks < 4) {
+	if (clicks < (players - 1)) {
 		document.getElementById('done').value = ++clicks;
 		 allowScrolling = true;
 	    var currentHeight = $(document).scrollTop();
 	    var newScrollPos = currentHeight + win_y;
 	    console.log(clicks);
 	    $('body').animate({scrollTop: newScrollPos}, 800).promise().done(function(){
-	    	// noscroll();
-	    	if (clicks % 2 !== 0){
+	    	noscroll();
+	    	if (clicks % 2 === 0){
 	    		console.log ("whaaaaaaaa");
 	    		
-	    		thingy();
+	    		writing();
 	    	}
 	    });
+	}
+	else if (clicks === (players - 1)){
+		alert("This game is done!!");
 	}
 };
 
@@ -164,23 +168,31 @@ noscroll = function(){
 
 
 
-thingy = function(){
+writing = function(){
 text = prompt("Write here!!");
 coord = $("#myCanvas").position();
 
 var currentHeight = $(document).scrollTop();
 console.log(currentHeight);
 	var text = new PointText({
-	    point: [(win_x/ 4), currentHeight+(win_y/2)],
+	    point: [(win_x/4), currentHeight+(win_y/2)],
 	    content: text,
 	    fillColor: 'black',
 	    fontFamily: 'Courier New',
 	    fontWeight: 'bold',
-	    fontSize: 100
+	    fontSize: (win_x/10)
 	});
 };
 
 
+var text = new PointText({
+    point: [(win_x/4), (win_y/2)],
+    content: 'whaaa',
+    fillColor: 'black',
+    fontFamily: 'Courier New',
+    fontWeight: 'bold',
+    fontSize: (win_x/10)
+});
 
 
 // var timeoutID;
