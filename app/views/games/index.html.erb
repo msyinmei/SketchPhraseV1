@@ -22,7 +22,30 @@
 <!-- Button for done/next turn -->
 	<div class="row">
 		<div class="fixed-bottom col-xs-12">
-			<%= link_to "DONE", games_path, class: "button" %>
+			<%= button_to "DONE", games_path, class: "button" %>
 		</div>
 	</div> 
 </div>
+
+
+<div id="myModal" class="modal container fade in">
+	<div class="modal-title col-xs-12">
+		<br>
+		<br>
+		<br>
+		<h1>Player 1
+<!-- should be turn-count eventually, not "1" -->
+		</h1>
+  	<br>
+  	<br>
+  	<br>
+  	<h3>ready?</h3>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+    <button type="button" data-dismiss="modal" class="button">GO!</button>
+   </div>
+</div>
+

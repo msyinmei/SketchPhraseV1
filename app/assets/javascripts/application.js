@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 //= require paper
-//= require CanvasInput
 
     window.fbAsyncInit = function() {
     FB.init({
@@ -111,3 +110,8 @@
         //may be able to redirect instead
     });
   }
+
+  $(window).load(function(){
+    console.log("MODAL!");
+    $('#myModal').modal('show');      
+    });
