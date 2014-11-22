@@ -1,8 +1,6 @@
 
-
 // The minimum distance the mouse has to drag
 // before firing the next onMouseDrag event:
-// tool.minDistance = 10;
 
 var path;
 var win_y = $(window).height();
@@ -11,12 +9,12 @@ var coord;
 var top;
 var left;
 
+paper.tool.minDistance = 10;
 
 // takes cordinates of top left corner and calculates it again when the widow
 // scrolled down
 $(window).load(function(){
 	coord = $("#myCanvas").position();
-	console.log(coord);
 	top = $(window).scrollTop();
 	left = coord.left;
 });
@@ -46,14 +44,14 @@ function onMouseDown(event) {
 	// Add a segment to the path where
 	// you clicked:
 	path.add(event.point);
-	console.log("mouse down");
+
 }
 
 function onMouseDrag(event) {
 	// Every drag event, add a segment
 	// to the path at the position of the mouse:
 	path.add(event.point);
-	console.log("adding color" + color);
+
 }
 
 
@@ -100,9 +98,7 @@ $(window).resize(function(){
 	left = coord.left;
 	$('#myCanvas').attr("width", win_x);
   	$('#myCanvas').width(win_x);
-	console.log(win_y);
-	console.log(win_x);
-	console.log(top, left);
+	
 });
 
 // creates a white rectangle based on the window size to clear the shown canvas
@@ -112,33 +108,20 @@ nextTurn = function() {
 	var rectSize = new paper.Size(win_x, win_y); 
 	var rect = new paper.Path.Rectangle(topLeft, rectSize);
 	rect.fillColor = '#fffff';
-	console.log(topLeft);
-	console.log(rect); // { x: 10, y: 20, width: 200, height: 100 }
-	console.log(rect.point); // { x: 10, y: 20 }
-	console.log(rect.size);
-	console.log("Doing");
 };
 
 $('#clear').click(function() {
-	// $(this).toggleClass("animate");
+
 	$.when(nextTurn()).done(function(){
 	
-		console.log("Done!");
-
 	});
 });
 
 
-
-
-
+// scroll only when done button is clicked
 
 var scrollTop;
 var allowScrolling;
-
-
-
-
 
 $(document).ready(function() {
 	console.log("document is ready");
@@ -146,23 +129,31 @@ $(document).ready(function() {
     allowScrolling = false;
     
     $(window).scroll(function() {
-    	console.log("evaluating scroll state")
+    	
         if(allowScrolling === false) {
              $( document ).scrollTop( scrollTopPos );
         }
     });
-    
-   
-    
 });
     
+var clicks = 0;
+
 scrollPage = function(){
-    allowScrolling = true;
-    var currentHeight = $(document).scrollTop();
-    var newScrollPos = currentHeight + win_y;
-    $('body').animate({scrollTop: newScrollPos}, 800).promise().done(function(){
-    	noscroll();
-    });
+	if (clicks < 4) {
+		document.getElementById('done').value = ++clicks;
+		 allowScrolling = true;
+	    var currentHeight = $(document).scrollTop();
+	    var newScrollPos = currentHeight + win_y;
+	    console.log(clicks);
+	    $('body').animate({scrollTop: newScrollPos}, 800).promise().done(function(){
+	    	// noscroll();
+	    	if (clicks % 2 !== 0){
+	    		console.log ("whaaaaaaaa");
+	    		
+	    		thingy();
+	    	}
+	    });
+	}
 };
 
 noscroll = function(){
@@ -170,5 +161,45 @@ noscroll = function(){
     allowScrolling = false;
 };
 
+
+
+
+thingy = function(){
+text = prompt("Write here!!");
+coord = $("#myCanvas").position();
+
+var currentHeight = $(document).scrollTop();
+console.log(currentHeight);
+	var text = new PointText({
+	    point: [(win_x/ 4), currentHeight+(win_y/2)],
+	    content: text,
+	    fillColor: 'black',
+	    fontFamily: 'Courier New',
+	    fontWeight: 'bold',
+	    fontSize: 100
+	});
+};
+
+
+
+
+// var timeoutID;
+
+// function delayedAlert() {
+//  window.setTimeout(newText(), 5000);
+// }
+
+// function newText() {
+//   var text = new PointText({
+//     point: [win_x, win_y],
+//     content: clicks,
+//     fillColor: 'black',
+//     fontFamily: 'Courier New',
+//     fontWeight: 'bold',
+//     fontSize: 55
+// 	});
+// }
+
+// delayedAlert();
 
 
