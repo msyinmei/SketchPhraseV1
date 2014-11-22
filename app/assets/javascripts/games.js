@@ -1,5 +1,10 @@
+// modal window appears between turns, on window load
 
+$(window).load(function(){
+  	$('#myModal').modal();      
+    });
 
+// $(document).ready(function(){
 // The minimum distance the mouse has to drag
 // before firing the next onMouseDrag event:
 // tool.minDistance = 10;
@@ -152,3 +157,4 @@ $(window).resize(function(){
 
 
 
+// });

@@ -110,3 +110,7 @@
         //may be able to redirect instead
     });
   }
+
+  $(window).load(function(){
+    $('#myModal').modal('show');      
+    });
