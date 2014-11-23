@@ -18,8 +18,6 @@
 /* overall style for the page */
 /*#gradient-background {*/
 body {
-/*  background: url(images/linear_bg_2.png);*/
-/*  background-repeat: repeat-x;*/
 	background:rgba(120,120,255, 1) no-repeat center center fixed;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from rgba(120, 120, 255, 1)), to rgba(255, 120, 120, 1));
   background: -webkit-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
@@ -65,7 +63,7 @@ body {
 }
 
 .button {
-	width: 170px;
+	width: 100%;
 	height: 60px;
 	display: inline-block;
 	margin: auto;

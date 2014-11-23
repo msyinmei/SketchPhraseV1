@@ -147,14 +147,16 @@ scrollPage = function(){
 	    $('body').animate({scrollTop: newScrollPos}, 800).promise().done(function(){
 	    	noscroll();
 	    	if (clicks % 2 === 0){
-	    		$('#textModal h1').text('Player: ' + (clicks + 1) + " write!");
+	    		$('#textModal h1').text('Player ' + (clicks + 1));
+	    		$('#textModal h3').text("phrase this sketch!");
 			    $('#textModal').modal('show');
 			    console.log("This is player" + (clicks + 1) );      
 			    
 	    	// writing();
 	    	}
 	    	else if (clicks % 2 !== 0){
-	    		$('#drawingModal h1').text('Player: ' + (clicks + 1) + " draw!");
+	    		$('#drawingModal h1').text('Player ' + (clicks + 1));
+	    		$('#drawingModal h3').text("sketch this phrase!");
 	    		$('#drawingModal').modal('show'); 
 	    		console.log("This is player" + (clicks + 1) ); 
 	    	}
