@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 //= require paper
-//= require CanvasInput
 
     window.fbAsyncInit = function() {
     FB.init({
