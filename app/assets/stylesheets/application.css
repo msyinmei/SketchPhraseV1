@@ -51,6 +51,19 @@ body {
 	margin-bottom: 20px;
 }
 
+.login-button {
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	display: inline-block;
+	font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+}
+
 .button {
 	width: 170px;
 	height: 60px;
@@ -64,13 +77,13 @@ body {
   border-radius: 20px;
 }
 
-.button:hover {
+.button:hover, .login-button:hover {
 	text-decoration: none;
 	color: rgba(255, 255, 255, 0.9);
 	outline: none;
 }
 
-.button:active {
+.button:active, .login-button:active {
 	text-decoration: none;
 	color: rgba(255, 255, 255, 0.9);
 	outline: none;
