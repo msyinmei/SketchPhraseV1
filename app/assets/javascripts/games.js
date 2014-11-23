@@ -1,4 +1,4 @@
-
+// modal window appears between turns, on window load
 // The minimum distance the mouse has to drag
 // before firing the next onMouseDrag event:
 
@@ -215,3 +215,4 @@ var text = new PointText({
 // delayedAlert();
 
 
+// });

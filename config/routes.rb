@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'access#index', as: 'root'
 
-  get 'results/index'
+  get 'results', to: 'results#index', as: 'results'
 
   get 'games', to: 'games#index', as: 'games'
 
