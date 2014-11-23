@@ -15,6 +15,7 @@
 //= require_tree .
 //= require paper
 
+
     window.fbAsyncInit = function() {
     FB.init({
       appId      : gon.fbid,
