@@ -117,3 +117,6 @@
     console.log("MODAL!");
     $('#myModal').modal('show');      
     });
+
+
+  var imageUrl;
