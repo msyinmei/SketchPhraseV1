@@ -110,3 +110,8 @@
         //may be able to redirect instead
     });
   }
+
+  $(window).load(function(){
+    console.log("MODAL!");
+    $('#myModal').modal('show');
+    });
