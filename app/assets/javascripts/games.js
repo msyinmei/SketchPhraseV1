@@ -199,4 +199,26 @@ var text = new PointText({
     fontSize: (win_x/10)
 });
 
+//Canvas post to Facebook
+function postCanvasToFacebook() {
+	var canvas = document.getElementById("myCanvas")
+	var data = canvas.toDataURL("image/png");
+	var encodedPng = data.substring(data.indexOf(',') + 1, data.length);
+	var decodedPng = Base64Binary.decode(encodedPng);
+	
+	FB.getLoginStatus(function(response) {
+	  if (response.status === "connected") {	
+		postImageToFacebook(response.authResponse.accessToken, "SketchPhrase", "image/png", decodedPng, "SketchPhrase game results");
+	  } else if (response.status === "not_authorized") {
+		 FB.login(function(response) {
+			postImageToFacebook(response.authResponse.accessToken, "SketchPhrase", "image/png", decodedPng, "SketchPhrase game results");
+		 }, {scope: "publish_stream"});
+	  } else {
+		 FB.login(function(response)  { 
+			postImageToFacebook(response.authResponse.accessToken, "SketchPhrase", "image/png", decodedPng, "SketchPhrase game results");
+		 }, {scope: "publish_stream"});
+	  }
+	 }); 
+
+};
 
