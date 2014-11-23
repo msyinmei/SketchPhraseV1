@@ -8,7 +8,7 @@ var win_x = $(window).width();
 var coord;
 var top;
 var left;
-var players = 5;
+var players = 6;
 paper.tool.minDistance = 10;
 
 // takes cordinates of top left corner and calculates it again when the widow
@@ -24,7 +24,6 @@ $(window).load(function(){
 
 // calc window height and sets canvas to windwo height times players in game
 (function() {
-	console.log("THIS IS WIN Y");
   	var big_height = (win_y * players);
   	$('#myCanvas').attr("height", big_height);
   	$('#myCanvas').height(big_height);
@@ -125,7 +124,6 @@ var scrollTop;
 var allowScrolling;
 
 $(document).ready(function() {
-	console.log("document is ready");
 	scrollTopPos = $( document ).scrollTop();
     allowScrolling = false;
     
@@ -149,9 +147,16 @@ scrollPage = function(){
 	    $('body').animate({scrollTop: newScrollPos}, 800).promise().done(function(){
 	    	noscroll();
 	    	if (clicks % 2 === 0){
-	    		console.log ("whaaaaaaaa");
-	    		
-	    		writing();
+	    		$('#textModal h1').text('Player: ' + (clicks + 1) + " write!");
+			    $('#textModal').modal('show');
+			    console.log("This is player" + (clicks + 1) );      
+			    
+	    	// writing();
+	    	}
+	    	else if (clicks % 2 !== 0){
+	    		$('#drawingModal h1').text('Player: ' + (clicks + 1) + " draw!");
+	    		$('#drawingModal').modal('show'); 
+	    		console.log("This is player" + (clicks + 1) ); 
 	    	}
 	    });
 	}
@@ -187,32 +192,11 @@ console.log(currentHeight);
 
 var text = new PointText({
     point: [(win_x/4), (win_y/2)],
-    content: 'whaaa',
+    content: 'Whaaaaa',
     fillColor: 'black',
-    fontFamily: 'Courier New',
+    fontFamily: "'Comfortaa', Helvetica, sans-serif",
     fontWeight: 'bold',
     fontSize: (win_x/10)
 });
 
 
-// var timeoutID;
-
-// function delayedAlert() {
-//  window.setTimeout(newText(), 5000);
-// }
-
-// function newText() {
-//   var text = new PointText({
-//     point: [win_x, win_y],
-//     content: clicks,
-//     fillColor: 'black',
-//     fontFamily: 'Courier New',
-//     fontWeight: 'bold',
-//     fontSize: 55
-// 	});
-// }
-
-// delayedAlert();
-
-
-// });
