@@ -16,12 +16,20 @@
 
 
 /* overall style for the page */
+/*#gradient-background {*/
 body {
-/*	background-image: url(http://images6.fanpop.com/image/photos/36100000/sleeping-puppy-dogs-36143055-1024-768.jpg);*/
+/*  background: url(images/linear_bg_2.png);*/
+/*  background-repeat: repeat-x;*/
+	background:rgba(120,120,255, 1) no-repeat center center fixed;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from rgba(120, 120, 255, 1)), to rgba(255, 120, 120, 1));
+  background: -webkit-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
+  background: -moz-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
+  background: -ms-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
+  background: -o-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
+  min-height: 100%;
 	color: rgba(255, 255, 255, .9);
 	font-family: 'Comfortaa', Helvetica, sans-serif;
 }
-
 
 
 .fixed-top {
@@ -43,6 +51,19 @@ body {
 	margin-bottom: 20px;
 }
 
+.login-button {
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	display: inline-block;
+	font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+}
+
 .button {
 	width: 170px;
 	height: 60px;
@@ -51,24 +72,37 @@ body {
 	font-size: 40px;
   background-color: rgba(0, 0, 0, 0.2);
   color: rgba(255, 255, 255, 0.9);
-/*  outline: none;*/
+  outline: none;
   border: 2px solid rgba(255, 255, 255, 0.9);
   border-radius: 20px;
 }
 
-.button:hover {
+.button:hover, .login-button:hover {
 	text-decoration: none;
 	color: rgba(255, 255, 255, 0.9);
+	outline: none;
 }
 
-.button:active {
+.button:active, .login-button:active {
 	text-decoration: none;
 	color: rgba(255, 255, 255, 0.9);
+	outline: none;
 }
+
+button:focus {
+	outline: none;
+}
+
+button:active {
+	outline: none;
+}
+
+
 img {
 	width: 100%;
 	height: 80%;
 }
+
 .draw {
 	height: 50px;
 	/*display: inline-block;*/
@@ -80,6 +114,17 @@ img {
   border-radius: 20px;
 }
 
+button.draw:active {
+	font-size: 23px;
+	outline: none;
+	border: none;
+}
+#myModal.modal {
+	background-color: rgba(0, 0, 0, 0.8);
+	text-align: center;
+	/*width: 100%;*/
+	float: none;
+}
 
 li {
 	text-decoration: none;
@@ -92,29 +137,6 @@ header {
 	text-align: center;
 }
 
-
-
-#gradient-background {
-  /* fallback */
-  background-color: rgba(120, 120, 255, 1);
-/*  background: url(images/linear_bg_2.png);*/
-/*  background-repeat: repeat-x;*/
-
-  /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from rgba(120, 120, 255, 1)), to rgba(255, 120, 120, 1));
-
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
-
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
-
-  /* IE 10 */
-  background: -ms-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
-
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(top, rgba(255, 120, 120, 1), rgba(120, 120, 255, 1));
-}
 
 .selected {
 	  background-color: rgba(0, 0, 0, 0.5);
@@ -150,10 +172,4 @@ header {
 	}
 
 }
-
-
-
-
-
-
 
