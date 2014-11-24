@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require paper
+//= require base64binary
 
     window.fbAsyncInit = function() {
     FB.init({
@@ -113,3 +114,6 @@
     console.log("MODAL!");
     $('#myModal').modal('show');
     });
+
+
+  var imageUrl;
