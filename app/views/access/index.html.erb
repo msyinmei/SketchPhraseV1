@@ -20,7 +20,8 @@
       </ul>
     </div>
   </div>
-
+<% if current_user %>
+Welcome, <%= current_user.name %>!
 <!-- CH if current_user CH  Welcome, CH EQ current_user.name CH! -->
 <!-- SIGNED IN VERSION, once logged in this section appears -->
 <!-- Note: Only works for Yin in developer mode, so this is commented out for now -->
@@ -51,7 +52,7 @@
     </div>
   </div>
 
-
+<% else %>
 <!--  CH else CH -->
 <!-- NOT SIGNED IN, this button will appear -->
 
@@ -59,6 +60,7 @@
   <%= link_to "Sign In To Start", "/auth/facebook", class: "login-button" %>
   </div>
 
+<% end %>
  <!--  CH end CH -->
  <!-- ends logged in conditions -->
 </div>
