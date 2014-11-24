@@ -133,14 +133,14 @@ button.draw:active {
 }
 
 #textModal.modal {
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.1);
 	text-align: center;
 	/*width: 100%;*/
 	float: none;
 }
 
 #drawingModal.modal {
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.1);
 	text-align: center;
 	/*width: 100%;*/
 	float: none;

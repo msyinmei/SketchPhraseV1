@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require paper
-
+//= require base64binary
 
     window.fbAsyncInit = function() {
     FB.init({
@@ -106,17 +106,14 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
         //may be able to redirect instead
     });
   }
 
   $(window).load(function(){
     console.log("MODAL!");
-    $('#myModal').modal('show');      
+    $('#myModal').modal('show');
     });
-
 
 // CODE FOR THE DYNAMIC GRADIENT
 
@@ -177,3 +174,5 @@ var color2 = "rgb("+r2+","+g2+","+b2+")";
 }
 
 setInterval(updateGradient,10);
+
+var imageUrl;
