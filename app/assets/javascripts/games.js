@@ -8,7 +8,7 @@ var win_x = $(window).width();
 var coord;
 var top;
 var left;
-var players = 4;
+var players = 5;
 paper.tool.minDistance = 10;
 
 // takes cordinates of top left corner and calculates it again when the widow
