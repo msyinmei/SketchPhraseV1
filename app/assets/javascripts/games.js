@@ -8,7 +8,7 @@ var win_x = $(window).width();
 var coord;
 var top;
 var left;
-var players = 4;
+var players = 5;
 paper.tool.minDistance = 10;
 
 // takes cordinates of top left corner and calculates it again when the widow
@@ -29,8 +29,15 @@ $(window).load(function(){
   	$('#myCanvas').height(big_height);
   	$('#myCanvas').attr("width", win_x);
   	$('#myCanvas').width(win_x);
+  	top = $(window).scrollTop();
+	var topLeft = new paper.Point(0, top); //creates the top left corner of rectangle
+	var rectSize = new paper.Size(win_x, big_height); 
+	var rect = new paper.Path.Rectangle(topLeft, rectSize);
+	rect.fillColor = '#fffff';
 
 })();
+
+
 
 var color = "#000000";
 var width = 5;
@@ -144,7 +151,7 @@ scrolldown = function(){
 	$('body').animate({scrollTop: newScrollPos}, 800).promise().done(function(){
 	    	noscroll();
 	});   	
-}
+};
 
 scrollPage = function(){
 	// only scrolls the page based on the number of players 
@@ -157,7 +164,7 @@ scrollPage = function(){
 		    $('#textModal').modal('show');
 		    console.log("This is player" + (clicks + 1) );      
 		    
-    	// writing();
+    	
     	}
     	// if number of clicks is an odd number then player draws
     	// pops up modal that tells the player to write 
@@ -190,23 +197,34 @@ noscroll = function(){
 
 // writes text on the canvas using prompt(needs to be changed to input modal)
 writing = function(){
-text = prompt("Write here!!");
-coord = $("#myCanvas").position();
+	var currentHeight = $(document).scrollTop();
+	var newScrollPos = currentHeight + win_y;
+	text = $("#myInput").val();
+	coord = $("#myCanvas").position();
+		var text = new PointText({
+		    point: [(win_x/6), newScrollPos+(win_y/2)],
+		    content: text,
+		    fillColor: 'black',
+		    fontFamily: "'Comfortaa', Helvetica, sans-serif",
+		    fontWeight: 'bold',
+		    fontSize: (win_x/15)
+		});
+		$('#myInput').val("");
+	};
 
-var currentHeight = $(document).scrollTop();
-console.log(currentHeight);
-	var text = new PointText({
-	    point: [(win_x/4), currentHeight+(win_y/2)],
-	    content: text,
-	    fillColor: 'black',
-	    fontFamily: 'Courier New',
-	    fontWeight: 'bold',
-	    fontSize: (win_x/10)
-	});
-};
+$('#submit').click(function() {
+    writing();
+});
+
+$('#myInput').on('keyup', function(e) {
+    if (e.keyCode === 13) {
+        $('#submit').click();
+    }
+});
 
 // adds text the beginning of canvas 
 var text = new PointText({
+		
     point: [(win_x/4), (win_y/2)],
     content: 'Whaaaaa',
     fillColor: 'black',
@@ -242,31 +260,34 @@ function postCanvasToFacebook() {
 displayImage = function(){
 
 var canvas = document.getElementById('myCanvas');
-var data = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-// var height = canvas.height;
-// var width = canvas.width;
-
-
-localStorage.setItem("imageUrl", data);
+var data = canvas.toDataURL("image/png");
 console.log(data);
-// var back = document.getElementById('background');
-// // $(back).attr(height);
-// $(back).height(height);
-// $(back).attr(width);
-// $(back).width(width);
-// $(back).zIndex(0);
-// $(back).css("background-color", "white");
+// .replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
 
-// var blah= document.getElementById('result');
-// $(blah).attr("src", data);
-// $(blah).zIndex(100);
+var encodedPng = data.substring(data.indexOf(',') + 1, data.length);
+var decodedPng = Base64Binary.decode(encodedPng);
 
-// $('#resultModal').modal('show');
+
+// console.log(encodedPng);
+
+// var byteArray = Base64Binary.decodeArrayBuffer(data);  
+
+
+localStorage.setItem("imageUrl", decodedPng);
+
+
+var blah= document.getElementById('result');
+$(blah).attr("src", data);
+
+
+$('#resultModal').modal('show');
 
 // localStorage.setItem("imgData", data);
-
 // window.location.href=image; // it will save locally
 };
+
+
+
 
 
 

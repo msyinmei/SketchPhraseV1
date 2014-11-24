@@ -49,7 +49,7 @@
     <button type="button" data-dismiss="modal" class="button">GO!</button>
    </div>
 </div>
-<div id="textModal" class="modal container fade in">
+<div id="" class="modal container fade in">
 	<div class="modal-title col-xs-12">
 		<br>
 		<br>
@@ -68,6 +68,20 @@
   	<br>
     <button type="button" onclick="scrolldown()" data-dismiss="modal" class="button">GO!</button>
    </div>
+</div>
+
+
+<div id="textModal" class="modal container fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h1 id="myModalLabel">Write Something</h1>
+  </div>
+  <div class="modal-body">
+    <h3>Enter something:</h3> <input type="text" id="myInput">
+  </div>
+  <h3>ready?</h3>
+   <button type="button" onclick="scrolldown(); writing();" id="submit" data-dismiss="modal" class="button">GO!</button>
+
 </div>
 
 <div id="drawingModal" class="modal container fade in">
@@ -99,6 +113,8 @@
 		<h1>Your Results Yo!!!!
 		</h1>
   	<br>
+  	<img src="" alt="" id="result">
+
   	<br>
   	<br>
   	<br>
