@@ -18,7 +18,7 @@
 window.onload = function(){
   var morePlayers = document.getElementById("morePlayers");
   var lessPlayers = document.getElementById("lessPlayers");
-  var playersCount = parseInt(document.getElementById("playersCount").innerHTML);
+  var playersCount = parseInt(document.getElementById("players_count").value);
 
   morePlayers.addEventListener('click', function() {
     console.log("clicked morePlayers");
@@ -26,8 +26,7 @@ window.onload = function(){
     if (playersCount < 10 ){
       playersCount += 1;
       console.log("New Players Count: " + playersCount);
-      $("#playersCount").empty();
-      $("#playersCount").append(playersCount);
+      (document.getElementById("players_count").value) = playersCount;
     }
     else {
       alert("3-10 players only. If you would like to add more players, please purchase our app.");
@@ -40,8 +39,7 @@ window.onload = function(){
   if (playersCount > 3 ){
   playersCount -= 1;
   console.log("New Players Count: " + playersCount);
-  $("#playersCount").empty();
-  $("#playersCount").append(playersCount);
+  (document.getElementById("players_count").value) = playersCount;
   }
     else {
       alert("3-10 players only. If you would like to play with ghosts, please purchase our app.");

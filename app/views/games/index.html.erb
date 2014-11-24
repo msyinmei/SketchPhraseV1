@@ -23,10 +23,9 @@
 <!-- Button for done/next turn -->
 	<div class="row">
 		<div class="fixed-bottom col-xs-12">
-		<button type="button" id="done" onclick="scrollPage()" class="col-xs-12 col-sm-offset-3 col-sm-6 button">Done</button>
-		<button type="button" id="Save" onclick="otherImage()" class="col-xs-12 col-sm-offset-3 col-sm-6 button">Save</button>
+		<button type="button" id="done" onclick="scrollPage()" class="button">Done</button>
 		</div>
-	</div> 
+	</div>
 </div>
 
 
@@ -42,6 +41,7 @@
   	<br>
   	<br>
   	<h3>write a phrase!</h3>
+    <h2><%= @players_count %> Players</h2>
   	<br>
   	<br>
   	<br>
@@ -50,7 +50,7 @@
     <button type="button" data-dismiss="modal" class="col-sm-offset-3 col-sm-6 button button">GO!</button>
    </div>
 </div>
-<div id="textModal" class="modal container fade in">
+<div id="" class="modal container fade in">
 	<div class="modal-title col-xs-12">
 		<br>
 		<br>
@@ -69,6 +69,20 @@
   	<br>
     <button type="button" onclick="scrolldown()" data-dismiss="modal" class="button">GO!</button>
    </div>
+</div>
+
+
+<div id="textModal" class="modal container fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h1 id="myModalLabel">Write Something</h1>
+  </div>
+  <div class="modal-body">
+    <h3>Enter something:</h3> <input type="text" id="myInput">
+  </div>
+  <h3>ready?</h3>
+   <button type="button" onclick="scrolldown(); writing();" id="submit" data-dismiss="modal" class="button">GO!</button>
+
 </div>
 
 <div id="drawingModal" class="modal container fade in">
@@ -98,18 +112,17 @@
 		<br>
 		<br>
 		<h1>Your Results Yo!!!!
-<!-- should be turn-count eventually, not "1" -->
 		</h1>
   	<br>
-  	<br>
-  	<br>
-  	<img id = "result" src="" alt="" width="" height="">
-  	<img id = "background" src="" alt="" width="" height="">
-  	<br>
+  	<img src="" alt="" id="result">
+
   	<br>
   	<br>
   	<br>
   	<br>
-    <button type="button" data-dismiss="modal" class="button">GO!</button>
+  	<br>
+  	<br>
+  	<br>
+     <%= link_to "Done", games_path, class: "button" %>
    </div>
 </div>

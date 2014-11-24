@@ -17,7 +17,8 @@
       </ul>
     </div>
   </div>
-
+<% if current_user %>
+Hi, <%= current_user.name %>!
 <!-- CH if current_user CH  Welcome, CH EQ current_user.name CH! -->
 <!-- SIGNED IN VERSION, once logged in this section appears -->
 <!-- Note: Only works for Yin in developer mode, so this is commented out for now -->
@@ -29,6 +30,7 @@
         <%= form_tag games_path, method: "post" do %>
 <!--         <span id="playersCount">5</span>
                 <span>Players</span> -->
+
         <button type="button" class="plus-minus" id="morePlayers">
           <span>+</span>
         </button>
@@ -37,6 +39,7 @@
         <button type="button" class="plus-minus" id="lessPlayers">
           <span>-</span>
         </button>
+        <!-- class="glyphicon glyphicon-plus" -->
       </div>
       <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-4">
           <%= submit_tag "START", class: "button" %>
@@ -46,6 +49,7 @@
       </div>
     </div>
   </div>
+<% else %>
 
 <!--  CH else CH -->
 <!-- NOT SIGNED IN, this button will appear -->
@@ -56,6 +60,7 @@
     </div>
   </div> -->
 
+<% end %>
  <!--  CH end CH -->
  <!-- ends logged in conditions -->
 </div>
