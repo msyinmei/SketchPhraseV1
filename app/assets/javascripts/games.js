@@ -144,10 +144,11 @@ $(document).ready(function() {
     
 var clicks = 0;
 
+//scrolling based on fixed viewport height
 scrolldown = function(){
 	allowScrolling = true;
-	    var currentHeight = $(document).scrollTop();
-	    var newScrollPos = currentHeight + win_y;
+	var currentHeight = $(document).scrollTop();
+	var newScrollPos = currentHeight + win_y;
 	$('body').animate({scrollTop: newScrollPos}, 800).promise().done(function(){
 	    	noscroll();
 	});   	
@@ -160,7 +161,8 @@ scrollPage = function(){
     	// if number of clicks is an even number then player write
     	// pops up modal that tells the player to wrtie
     	if (clicks % 2 === 0){
-    		$('#textModal h1').text('Player: ' + (clicks + 1) + " write!");
+    		$('#textModal h1').text('Player: ' + (clicks + 1));
+    		$('#textModal h3').text("phrase this sketch!");
 		    $('#textModal').modal('show');
 		    console.log("This is player" + (clicks + 1) );      
 		    
@@ -169,7 +171,8 @@ scrollPage = function(){
     	// if number of clicks is an odd number then player draws
     	// pops up modal that tells the player to write 
     	else if (clicks % 2 !== 0){
-    		$('#drawingModal h1').text('Player: ' + (clicks + 1) + " draw!");
+    		$('#drawingModal h1').text('Player: ' + (clicks + 1));
+    		$('#drawingModal h3').text("sketch this phrase!");
     		$('#drawingModal').modal('show'); 
     		console.log("This is player" + (clicks + 1) ); 
     	}
@@ -234,6 +237,35 @@ var text = new PointText({
 });
 
 //Canvas post to Facebook
+var authToken;
+function postImageToFacebook( authToken, filename, mimeType, imageData, message )
+{
+    // this is the multipart/form-data boundary we'll use
+    var boundary = '----ThisIsTheBoundary1234567890';   
+    // let's encode our image file, which is contained in the var
+    var formData = '--' + boundary + '\r\n'
+    formData += 'Content-Disposition: form-data; name="source"; filename="' + filename + '"\r\n';
+    formData += 'Content-Type: ' + mimeType + '\r\n\r\n';
+    for ( var i = 0; i < imageData.length; ++i )
+    {
+        formData += String.fromCharCode( imageData[ i ] & 0xff );
+    }
+    formData += '\r\n';
+    formData += '--' + boundary + '\r\n';
+    formData += 'Content-Disposition: form-data; name="message"\r\n\r\n';
+    formData += message + '\r\n'
+    formData += '--' + boundary + '--\r\n';
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open( 'POST', 'https://graph.facebook.com/me/photos?access_token=' + authToken, true );
+    xhr.onload = xhr.onerror = function() {
+        console.log( xhr.responseText );
+    };
+    xhr.setRequestHeader( "Content-Type", "multipart/form-data; boundary=" + boundary );
+    xhr.sendAsBinary( formData );
+};
+
+//call this function with button to Share canvas
 function postCanvasToFacebook() {
 	var canvas = document.getElementById("myCanvas")
 	var data = canvas.toDataURL("image/png");
