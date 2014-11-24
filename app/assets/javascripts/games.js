@@ -137,14 +137,15 @@ $(document).ready(function() {
     
 var clicks = 0;
 
+//scrolling based on fixed viewport height
 scrolldown = function(){
 	allowScrolling = true;
-	    var currentHeight = $(document).scrollTop();
-	    var newScrollPos = currentHeight + win_y;
+	var currentHeight = $(document).scrollTop();
+	var newScrollPos = currentHeight + win_y;
 	$('body').animate({scrollTop: newScrollPos}, 800).promise().done(function(){
 	    	noscroll();
 	});   	
-}
+};
 
 scrollPage = function(){
 	// only scrolls the page based on the number of players 
