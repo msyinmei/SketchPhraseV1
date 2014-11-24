@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   root 'access#index', as: 'root'
 
-  get 'results', to: 'results#index', as: 'results'
-
   get 'games', to: 'games#index', as: 'games'
+  post 'games', to: 'games#index'
+
 
   get '/auth/:provider/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#logout', as: 'logout'
