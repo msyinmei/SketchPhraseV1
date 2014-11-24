@@ -137,34 +137,35 @@ $(document).ready(function() {
     
 var clicks = 0;
 
+scrolldown = function(){
+	allowScrolling = true;
+	    var currentHeight = $(document).scrollTop();
+	    var newScrollPos = currentHeight + win_y;
+	$('body').animate({scrollTop: newScrollPos}, 800).promise().done(function(){
+	    	noscroll();
+	});   	
+}
+
 scrollPage = function(){
 	// only scrolls the page based on the number of players 
 	if (clicks < (players - 1)) {
 		document.getElementById('done').value = ++clicks;
-		 allowScrolling = true;
-	    var currentHeight = $(document).scrollTop();
-	    var newScrollPos = currentHeight + win_y;
-	    console.log(clicks);
-	    // scrolls the page 
-	    $('body').animate({scrollTop: newScrollPos}, 800).promise().done(function(){
-	    	noscroll();
-	    	// if number of clicks is an even number then player write
-	    	// pops up modal that tells the player to wrtie
-	    	if (clicks % 2 === 0){
-	    		$('#textModal h1').text('Player: ' + (clicks + 1) + " write!");
-			    $('#textModal').modal('show');
-			    console.log("This is player" + (clicks + 1) );      
-			    
-	    	// writing();
-	    	}
-	    	// if number of clicks is an odd number then player draws
-	    	// pops up modal that tells the player to write 
-	    	else if (clicks % 2 !== 0){
-	    		$('#drawingModal h1').text('Player: ' + (clicks + 1) + " draw!");
-	    		$('#drawingModal').modal('show'); 
-	    		console.log("This is player" + (clicks + 1) ); 
-	    	}
-	    });
+    	// if number of clicks is an even number then player write
+    	// pops up modal that tells the player to wrtie
+    	if (clicks % 2 === 0){
+    		$('#textModal h1').text('Player: ' + (clicks + 1) + " write!");
+		    $('#textModal').modal('show');
+		    console.log("This is player" + (clicks + 1) );      
+		    
+    	// writing();
+    	}
+    	// if number of clicks is an odd number then player draws
+    	// pops up modal that tells the player to write 
+    	else if (clicks % 2 !== 0){
+    		$('#drawingModal h1').text('Player: ' + (clicks + 1) + " draw!");
+    		$('#drawingModal').modal('show'); 
+    		console.log("This is player" + (clicks + 1) ); 
+    	}
 	}
 	// alerts when game is done(needs to be changed to a modal)
 	else if (clicks === (players - 1)){
