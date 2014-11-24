@@ -8,7 +8,7 @@ var win_x = $(window).width();
 var coord;
 var top;
 var left;
-var players = 4;
+var players = 5;
 paper.tool.minDistance = 10;
 
 // takes cordinates of top left corner and calculates it again when the widow
@@ -137,14 +137,15 @@ $(document).ready(function() {
     
 var clicks = 0;
 
+//scrolling based on fixed viewport height
 scrolldown = function(){
 	allowScrolling = true;
-	    var currentHeight = $(document).scrollTop();
-	    var newScrollPos = currentHeight + win_y;
+	var currentHeight = $(document).scrollTop();
+	var newScrollPos = currentHeight + win_y;
 	$('body').animate({scrollTop: newScrollPos}, 800).promise().done(function(){
 	    	noscroll();
 	});   	
-}
+};
 
 scrollPage = function(){
 	// only scrolls the page based on the number of players 
@@ -209,6 +210,35 @@ var text = new PointText({
 });
 
 //Canvas post to Facebook
+var authToken;
+function postImageToFacebook( authToken, filename, mimeType, imageData, message )
+{
+    // this is the multipart/form-data boundary we'll use
+    var boundary = '----ThisIsTheBoundary1234567890';   
+    // let's encode our image file, which is contained in the var
+    var formData = '--' + boundary + '\r\n'
+    formData += 'Content-Disposition: form-data; name="source"; filename="' + filename + '"\r\n';
+    formData += 'Content-Type: ' + mimeType + '\r\n\r\n';
+    for ( var i = 0; i < imageData.length; ++i )
+    {
+        formData += String.fromCharCode( imageData[ i ] & 0xff );
+    }
+    formData += '\r\n';
+    formData += '--' + boundary + '\r\n';
+    formData += 'Content-Disposition: form-data; name="message"\r\n\r\n';
+    formData += message + '\r\n'
+    formData += '--' + boundary + '--\r\n';
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open( 'POST', 'https://graph.facebook.com/me/photos?access_token=' + authToken, true );
+    xhr.onload = xhr.onerror = function() {
+        console.log( xhr.responseText );
+    };
+    xhr.setRequestHeader( "Content-Type", "multipart/form-data; boundary=" + boundary );
+    xhr.sendAsBinary( formData );
+};
+
+//call this function with button to Share canvas
 function postCanvasToFacebook() {
 	var canvas = document.getElementById("myCanvas")
 	var data = canvas.toDataURL("image/png");
