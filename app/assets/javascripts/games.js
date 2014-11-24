@@ -168,7 +168,14 @@ scrollPage = function(){
 	}
 	// alerts when game is done(needs to be changed to a modal)
 	else if (clicks === (players - 1)){
-		alert("This game is done!!");
+		displayImage(); 
+		$('#resultModal').modal('show');
+
+		// $.when(displayImage()).done(function(){
+		// var url = "http://localhost:3000/results";
+  //  		window.location.href= url;
+		// });
+		
 	}
 };
 
@@ -228,31 +235,32 @@ function postCanvasToFacebook() {
 	  }
 	 }); 
 
-};
+}
 
 
-otherImage = function(){
+displayImage = function(){
+
+var canvas = document.getElementById('myCanvas');
+var data = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+// var height = canvas.height;
+// var width = canvas.width;
 
 
-	var canvas = document.getElementById('myCanvas');
-	var data = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-var height = canvas.height;
-var width = canvas.width;
+localStorage.setItem("imageUrl", data);
+console.log(data);
+// var back = document.getElementById('background');
+// // $(back).attr(height);
+// $(back).height(height);
+// $(back).attr(width);
+// $(back).width(width);
+// $(back).zIndex(0);
+// $(back).css("background-color", "white");
 
+// var blah= document.getElementById('result');
+// $(blah).attr("src", data);
+// $(blah).zIndex(100);
 
-var back = document.getElementById('background');
-// $(back).attr(height);
-$(back).height(height);
-$(back).attr(width);
-$(back).width(width);
-$(back).zIndex(0);
-$(back).css("background-color", "white");
-
-var blah= document.getElementById('result');
-$(blah).attr("src", data);
-$(blah).zIndex(100);
-
-$('#resultModal').modal('show');
+// $('#resultModal').modal('show');
 
 // localStorage.setItem("imgData", data);
 

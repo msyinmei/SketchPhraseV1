@@ -24,7 +24,6 @@
 	<div class="row">
 		<div class="fixed-bottom col-xs-12">
 		<button type="button" id="done" onclick="scrollPage()" class="button">Done</button>
-		<button type="button" id="Save" onclick="otherImage()" class="button">Save</button>
 		</div>
 	</div> 
 </div>
@@ -98,18 +97,15 @@
 		<br>
 		<br>
 		<h1>Your Results Yo!!!!
-<!-- should be turn-count eventually, not "1" -->
 		</h1>
   	<br>
   	<br>
   	<br>
-  	<img id = "result" src="" alt="" width="" height="">
-  	<img id = "background" src="" alt="" width="" height="">
   	<br>
   	<br>
   	<br>
   	<br>
   	<br>
-    <button type="button" data-dismiss="modal" class="button">GO!</button>
+     <%= link_to "Done", results_path, class: "button" %>
    </div>
 </div>
