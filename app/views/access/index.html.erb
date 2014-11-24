@@ -8,20 +8,17 @@
   <div class="row">
     <div class="col-xs-12">
       <ul class="col-xs-offset-1 col-xs-11"><h3>How to play:</h3>
-        <li>Step 1</li>
-        <li>Step 2</li>
-        <li>Step 3</li>
-        <li>Step 4</li>
-        <li>Step 5</li>
-        <li>Step 1</li>
-        <li>Step 2</li>
-        <li>Step 3</li>
-        <li>Step 4</li>
+        <li><h4>- 1st person writes a phrase</h4></li>
+        <li><h4>- 2nd person sketches that phrase</h4></li>
+        <li><h4>- 3rd person phrases 2nd person's sketch</h4></li>
+        <li><h4>- continue at infinitum</h4></li>
+        <li><h4>- last person goes</h4></li>
+        <li><h4>- everybody wins</h4></li>
       </ul>
     </div>
   </div>
 <% if current_user %>
-Welcome, <%= current_user.name %>!
+Hi, <%= current_user.name %>!
 <!-- CH if current_user CH  Welcome, CH EQ current_user.name CH! -->
 <!-- SIGNED IN VERSION, once logged in this section appears -->
 <!-- Note: Only works for Yin in developer mode, so this is commented out for now -->
@@ -29,36 +26,39 @@ Welcome, <%= current_user.name %>!
 
   <div class="row">
     <div class="fixed-bottom col-xs-12">
-      <div class="col-xs-12">
+      <div class="col-xs-offset-2 col-xs-8">
         <%= form_tag games_path, method: "post" do %>
 <!--         <span id="playersCount">5</span>
                 <span>Players</span> -->
-        <button type="button" class="btn" id="morePlayers">
-          <span class="glyphicon glyphicon-plus"></span>
-        </button><br>
-        <%= text_field_tag :players_count, 5, :readonly => true %>
-        <%= label_tag "Players" %>
-        <br>
-        <button type="button" class="btn" id="lessPlayers">
-          <span class="glyphicon glyphicon-minus"></span>
-        </button><br>
+
+        <button type="button" class="plus-minus" id="morePlayers">
+          <span>+</span>
+        </button>
+        <h3><%= text_field_tag :players_count, 5, :readonly => true %>
+        <%= label_tag :players_count, "Players" %></h3>
+        <button type="button" class="plus-minus" id="lessPlayers">
+          <span>-</span>
+        </button>
+        <!-- class="glyphicon glyphicon-plus" -->
       </div>
-      <div class="col-xs-12">
-          <%= submit_tag "START!", class: "button" %>
+      <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-4">
+          <%= submit_tag "START", class: "button" %>
         <% end %>
 
-        <%= link_to "Sign Out", logout_path, class: "button" %>
+        <%= link_to "SIGN OUT", logout_path, class: "button" %>
       </div>
     </div>
   </div>
-
 <% else %>
+
 <!--  CH else CH -->
 <!-- NOT SIGNED IN, this button will appear -->
 
-  <div class="col-xs-12">
-  <%= link_to "Sign In To Start", "/auth/facebook", class: "login-button" %>
-  </div>
+<!--   <div class="fixed-bottom col-xs-12">
+    <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-4">
+      <%= link_to "Sign In To Start", "/auth/facebook", class: "button" %>
+    </div>
+  </div> -->
 
 <% end %>
  <!--  CH end CH -->
