@@ -215,26 +215,44 @@ writing = function(){
 		$('#myInput').val("");
 	};
 
+// adds click listener to enter button
 $('#submit').click(function() {
     writing();
+    scrolldown();
 });
 
 $('#myInput').on('keyup', function(e) {
     if (e.keyCode === 13) {
         $('#submit').click();
+         $('#myCanvas').click();
     }
 });
 
-// adds text the beginning of canvas 
-var text = new PointText({
-		
-    point: [(win_x/4), (win_y/2)],
-    content: 'Whaaaaa',
-    fillColor: 'black',
-    fontFamily: "'Comfortaa', Helvetica, sans-serif",
-    fontWeight: 'bold',
-    fontSize: (win_x/10)
+$('#firstSubmit').click(function() {
+    writing();
 });
+
+$('#firstInput').on('keyup', function(e) {
+    if (e.keyCode === 13) {
+        $('#firstSubmit').click();
+         $('#myCanvas').click();
+    }
+});
+
+
+writingFirst = function(){
+
+text = $("#firstInput").val();
+	var text = new PointText({
+		point: [(win_x/4), (win_y/2)],
+	    content: text,
+	    fillColor: 'black',
+	    fontFamily: "'Comfortaa', Helvetica, sans-serif",
+	    fontWeight: 'bold',
+	    fontSize: (win_x/10)
+	});
+		$('#firstInput').val("");
+};
 
 //Canvas post to Facebook
 var authToken;
@@ -294,22 +312,15 @@ displayImage = function(){
 var canvas = document.getElementById('myCanvas');
 var data = canvas.toDataURL("image/png");
 console.log(data);
-// .replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-
-var encodedPng = data.substring(data.indexOf(',') + 1, data.length);
-var decodedPng = Base64Binary.decode(encodedPng);
 
 
-// console.log(encodedPng);
-
-// var byteArray = Base64Binary.decodeArrayBuffer(data);  
 
 
 localStorage.setItem("imageUrl", decodedPng);
 
 
-var blah= document.getElementById('result');
-$(blah).attr("src", data);
+var image = document.getElementById('result');
+$(image).attr("src", data);
 
 
 $('#resultModal').modal('show');
