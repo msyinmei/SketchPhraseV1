@@ -21,7 +21,8 @@
     </div>
   </div>
 
-
+<% if current_user %>
+Welcome, <%= current_user.name %>
 
 <!-- CH if current_user CH  Welcome, CH EQ current_user.name CH! -->
 <!-- SIGNED IN VERSION, once logged in this section appears -->
@@ -38,7 +39,7 @@
           <span class="glyphicon glyphicon-plus"></span>
         </button><br>
         <%= text_field_tag :players_count, 5, :readonly => true %>
-        <%= label_tag :players_count, "Players" %>
+        <%= label_tag "Players" %>
         <br>
         <button type="button" class="btn" id="lessPlayers">
           <span class="glyphicon glyphicon-minus"></span>
@@ -53,6 +54,7 @@
     </div>
   </div>
 
+<% else %>
 
 <!--  CH else CH -->
 <!-- NOT SIGNED IN, this button will appear -->
@@ -61,6 +63,7 @@
   <%= link_to "Sign In To Start", "/auth/facebook", class: "login-button" %>
   </div>
 
+<% end %>
  <!--  CH end CH -->
  <!-- ends logged in conditions -->
 </div>
