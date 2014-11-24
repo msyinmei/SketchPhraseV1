@@ -29,60 +29,29 @@
 </div>
 
 
-<div id="myModal" class="modal container fade in">
-	<div class="modal-title col-xs-12">
-		<br>
-		<br>
-		<br>
-		<h1>Player 1
-<!-- should be turn-count eventually, not "1" -->
-		</h1>
+<div id="myModal" class="modal-title col-xs-12 container fade in">
+	  <h1 id="myModalLabel">Player 1</h1>
+	  <div class="modal-body">
+	   <h2><%= @players_count %> Players</h2>
+	    	<h3>Write a phrase!</h3> 
+	   		<input type="text" id="firstInput">
+	  </div>
   	<br>
-  	<br>
-  	<br>
-  	<h3>write a phrase!</h3>
-    <h2><%= @players_count %> Players</h2>
-  	<br>
-  	<br>
-  	<br>
-  	<br>
-  	<br>
-    <button type="button" data-dismiss="modal" class="col-sm-offset-3 col-sm-6 button button">GO!</button>
-   </div>
-</div>
-<div id="" class="modal container fade in">
-	<div class="modal-title col-xs-12">
-		<br>
-		<br>
-		<br>
-		<h1>This is the text input modal(eventually)
-<!-- should be turn-count eventually, not "1" -->
-		</h1>
-  	<br>
-  	<br>
-  	<br>
-  	<h3>this will get replaced from games.js</h3>
-  	<br>
-  	<br>
-  	<br>
-  	<br>
-  	<br>
-    <button type="button" onclick="scrolldown()" data-dismiss="modal" class="button">GO!</button>
-   </div>
+	   	<button type="button" onclick=" writingFirst();" id="firstSubmit" data-dismiss="modal" class="button">GO!</button>
+	   
 </div>
 
 
-<div id="textModal" class="modal container fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h1 id="myModalLabel">Write Something</h1>
-  </div>
-  <div class="modal-body">
-    <h3>Enter something:</h3> <input type="text" id="myInput">
-  </div>
-  <h3>ready?</h3>
-   <button type="button" onclick="scrolldown(); writing();" id="submit" data-dismiss="modal" class="button">GO!</button>
+<div id="textModal" class="modal-title col-xs-12 container fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <h1 id="myModalLabel">Player 1</h1>
+	  <div class="modal-body">
+	    	<h3>Write a phrase!</h3> 
+	   		<input type="text" id="myInput">
+	  </div>
 
+  	<br>
+	   	<button type="button" onclick="scrolldown(); writing();" id="submit" data-dismiss="modal" class="button">GO!</button>
+	   
 </div>
 
 <div id="drawingModal" class="modal container fade in">
@@ -123,6 +92,5 @@
   	<br>
   	<br>
   	<br>
-     <%= link_to "Done", games_path, class: "button" %>
    </div>
 </div>
