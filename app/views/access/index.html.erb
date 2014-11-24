@@ -11,7 +11,7 @@
 <div id="user_nav">
 
 
-    <div id="gradient-background" class="container-fluid">
+    <div id="dynamic-gradient" class="container-fluid">
   <div class="row">
     <header class="col-xs-12">
         <h1>Sketch Phrase!</h1>
@@ -65,20 +65,63 @@
       </div>
     </div>
   </div>
-    <% else %>
-      <div class="col-xs-12">
-        <%= link_to "Sign In To Start", "/auth/facebook", class: "login-button" %>
-      </div>
-        <!-- Note: This only works for Yin in developer mode. Access game below. -->
-      <div class="col-xs-5">
-      </div>
-      </div>
-    <% end %>
-
 </div>
 
-
+  <% else %>
 
 
 <!-- THIS IS WHAT ACTUALLY LOADS -->
 
+
+  <div class="container-fluid">
+<!-- LIVES IN A MODAL AT THE BOTTOM OF THE PAGE NOW -->
+    <!-- <div class="row">
+      <div class="col-xs-12">
+        <div class="col-xs-offset-1 col-xs-5 col-sm-offset-3 col-sm-3">
+          <%= link_to "sign in", "/auth/facebook", class: "login-button" %>
+        </div> -->
+        <!-- Note: This only works for Yin in developer mode. Access game below. -->
+        <!-- <div class="col-xs-5 col-sm-3">
+          <%= link_to "sign out", logout_path, class: "login-button" %>
+        </div>
+      </div> -->
+    </div>
+    <div class="row">
+      <div class="fixed-bottom col-xs-12">
+        <div class="col-xs-12">
+          <h3 class="player-count">5 players</h3>
+        </div>
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6">
+          <%= link_to "START", games_path, class: "button" %>
+        </div>
+      </div>
+    </div>
+    
+    <div id="myModal" class="modal container fade in">
+      <div class="modal-title col-xs-12">
+        <br>
+        <br>
+        <br>
+        <header>
+          <h1>Sketch Phrase!</h1>
+        </header>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3>before we play</h3>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+<!-- OLD CODE FOR THE BUTTON -->
+<!--         <button type="button" data-dismiss="modal" class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6 button">please sign in</button> -->
+  
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6">
+          <%= link_to "sign in", "/auth/facebook", type: "button", class: "button" %>
+        </div>
+        <!-- Note: This only works for Yin in developer mode. Access game below. -->
+      </div>
+    <% end %>
+</div>

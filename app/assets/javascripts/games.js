@@ -154,7 +154,8 @@ scrollPage = function(){
     	// if number of clicks is an even number then player write
     	// pops up modal that tells the player to wrtie
     	if (clicks % 2 === 0){
-    		$('#textModal h1').text('Player: ' + (clicks + 1) + " write!");
+    		$('#textModal h1').text('Player: ' + (clicks + 1));
+    		$('#textModal h3').text("phrase this sketch!");
 		    $('#textModal').modal('show');
 		    console.log("This is player" + (clicks + 1) );      
 		    
@@ -163,7 +164,8 @@ scrollPage = function(){
     	// if number of clicks is an odd number then player draws
     	// pops up modal that tells the player to write 
     	else if (clicks % 2 !== 0){
-    		$('#drawingModal h1').text('Player: ' + (clicks + 1) + " draw!");
+    		$('#drawingModal h1').text('Player: ' + (clicks + 1));
+    		$('#drawingModal h3').text("sketch this phrase!");
     		$('#drawingModal').modal('show'); 
     		console.log("This is player" + (clicks + 1) ); 
     	}
