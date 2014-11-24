@@ -3,6 +3,7 @@ class GamesController < ApplicationController
   # before_action :confirm_logged_in
 
 	def index
+
 	end
 
   def create
@@ -10,8 +11,12 @@ class GamesController < ApplicationController
     if session[:user_id]
       @game.user_id = session[:user_id]
     end
-    @players = params[:players_id]
-    redirect_to games_path
+    session[:players_count] = params[:players_count]
+    redirect_to game_path(@game)
+  end
+
+  def show
+
   end
 
 end
