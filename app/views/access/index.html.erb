@@ -9,8 +9,7 @@
 
 <!-- THIS VERSION ONLY WORKS FOR YIN OR SOMETHING -->
 <div id="user_nav">
-  <% if current_user %>
-    Welcome, <%= current_user.name %>!
+
 
     <div id="gradient-background" class="container-fluid">
   <div class="row">
@@ -33,6 +32,8 @@
       </ul>
     </div>
   </div>
+<% if current_user %>
+    Welcome, <%= current_user.name %>!
   <div class="row">
     <div class="fixed-bottom col-xs-12">
       <div class="col-xs-12">
@@ -46,100 +47,27 @@
         <button type="button" class="btn" id="lessPlayers">
         <span class="glyphicon glyphicon-minus"></span>
         </button>
-
       </div>
       <div class="col-xs-12">
-        <%= link_to "START!", games_path, class: "button"%>
+        <%= link_to "START!", games_path, class: "button" %>
         <%= link_to "Sign Out", logout_path, class: "button" %>
-
       </div>
     </div>
   </div>
+    <% else %>
+      <div class="col-xs-12">
+        <%= link_to "Sign In To Start", "/auth/facebook", class: "login-button" %>
+      </div>
+        <!-- Note: This only works for Yin in developer mode. Access game below. -->
+      <div class="col-xs-5">
+      </div>
+      </div>
+    <% end %>
+
 </div>
 
-  <% else %>
+
 
 
 <!-- THIS IS WHAT ACTUALLY LOADS -->
 
-
-  <div class="container-fluid">
-    <div class="row">
-      <header class="col-xs-12">
-        <h1>Sketch Phrase!</h1>
-      </header>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <h3 class="player-count">5 players hi</h3>
-        <div class="col-xs-offset-1 col-xs-5">
-          <%= link_to "sign in", "/auth/facebook", class: "login-button" %>
-        </div>
-        <!-- Note: This only works for Yin in developer mode. Access game below. -->
-        <div class="col-xs-5">
-          <%= link_to "sign out", logout_path, class: "login-button" %>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <ul class="col-xs-offset-1 col-xs-11"><h3>How to play:</h3>
-          <li>Step 1</li>
-          <li>Step 2</li>
-          <li>Step 3</li>
-          <li>Step 4</li>
-          <li>Step 5</li>
-          <li>Step 1</li>
-          <li>Step 2</li>
-          <li>Step 3</li>
-          <li>Step 4</li>
-          <li>Step 5</li>
-          <li>Step 1</li>
-          <li>Step 2</li>
-        </ul>
-      </div>
-    </div>
-    <div class="row">
-      <div class="fixed-bottom col-xs-12">
-        <div class="col-xs-12">
-          <button type="button" class="btn" id="morePlayers">
-            <span class="glyphicon glyphicon-plus"></span>
-          </button>
-        <br>
-          <span id="playersCount">5</span>
-          <span>Players</span>
-        <br>
-          <button type="button" class="btn" id="lessPlayers">
-            <span class="glyphicon glyphicon-minus"></span>
-          </button>
-        </div>
-        <div class="col-xs-12">
-          <%= link_to "START", games_path, class: "button" %>
-        </div>
-      </div>
-    </div>
-
-    <div id="myModal" class="modal container fade in">
-      <div class="modal-title col-xs-12">
-        <br>
-        <br>
-        <br>
-        <h1>before we play
-    <!-- should be turn-count eventually, not "1" -->
-        </h1>
-        <br>
-        <br>
-        <br>
-    <!--     <h3>ready?</h3> -->
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <button type="button" data-dismiss="modal" class="button">please sign in</button>
-      </div>
-    </div>
-
-  </div>
-  <% end %>
-</div>

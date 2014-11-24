@@ -5,4 +5,13 @@ class GamesController < ApplicationController
 	def index
 	end
 
+  def create
+    @game = Game.new
+    if session[:user_id]
+      @game.user_id = session[:user_id]
+    end
+    @players = params[:players_id]
+    redirect_to games_path
+  end
+
 end
