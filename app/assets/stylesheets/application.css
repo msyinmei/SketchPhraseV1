@@ -126,21 +126,21 @@ button.draw:active {
 	border: none;
 }
 #myModal.modal {
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.3);
 	text-align: center;
 	/*width: 100%;*/
 	float: none;
 }
 
 #textModal.modal {
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.3);
 	text-align: center;
 	/*width: 100%;*/
 	float: none;
 }
 
 #drawingModal.modal {
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.3);
 	text-align: center;
 	/*width: 100%;*/
 	float: none;
