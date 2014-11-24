@@ -34,7 +34,6 @@
   </div>
 <% if current_user %>
     Welcome, <%= current_user.name %>!
-
   <div class="row">
     <div class="fixed-bottom col-xs-12">
       <div class="col-xs-12">
@@ -48,7 +47,6 @@
         <button type="button" class="btn" id="lessPlayers">
         <span class="glyphicon glyphicon-minus"></span>
         </button>
-
       </div>
       <div class="col-xs-12">
         <%= link_to "START!", games_path, class: "button" %>
@@ -65,27 +63,6 @@
       </div>
       </div>
     <% end %>
-
-  <div id="myModal" class="modal container fade in">
-      <div class="modal-title col-xs-12">
-        <br>
-        <br>
-        <br>
-        <h1>Welcome to Sketch Phrase!
-    <!-- should be turn-count eventually, not "1" -->
-        </h1>
-        <br>
-        <br>
-        <br>
-    <!--     <h3>ready?</h3> -->
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <button type="button" data-dismiss="modal" class="button">please sign in</button>
-      </div>
-</div>
 
 </div>
 
