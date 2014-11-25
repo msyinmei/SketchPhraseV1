@@ -262,6 +262,8 @@ $('#firstInput').on('keyup', function(e) {
 //Canvas post to Facebook
 
 
+//if browser is Chrome or Webkit send Request to FB as Uint8Array
+
 if ( XMLHttpRequest.prototype.sendAsBinary === undefined ) {
     XMLHttpRequest.prototype.sendAsBinary = function(string) {
         var bytes = Array.prototype.map.call(string, function(c) {
@@ -271,6 +273,7 @@ if ( XMLHttpRequest.prototype.sendAsBinary === undefined ) {
     };
 };
 
+//function that posts the decoded base64 binary image string to facebook
 var authToken;
 function postImageToFacebook( authToken, filename, mimeType, imageData, message ){
     // this is the multipart/form-data boundary we'll use
