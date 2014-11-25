@@ -112,10 +112,7 @@
     });
   }
 
-  $(window).load(function(){
-    console.log("MODAL!");
-    $('#myModal').modal('show');
-    });
+ 
 
 // CODE FOR THE DYNAMIC GRADIENT
 
