@@ -10,7 +10,9 @@ var top;
 var left;
 var players = document.getElementById("playersCount").innerHTML;
 
-
+$(function() {
+    $.fn.modal.Constructor.DEFAULTS.backdrop = 'static';
+});
 
 // takes cordinates of top left corner and calculates it again when the widow
 // scrolled down
