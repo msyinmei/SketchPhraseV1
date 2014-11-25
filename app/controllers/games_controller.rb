@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   # before_action :confirm_logged_in
 
 	def index
-    @user = User.find(2)
+    @user = User.find(session[:user_id])
     @games = @user.games
     @game = @games.last
     # @game = Game.find_all_by_user_id(session[:user_id]).last
