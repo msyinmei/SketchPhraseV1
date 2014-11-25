@@ -6,7 +6,7 @@ The game starts with Player 1 writing down a well-known phrase or person and pas
 
 
 
-Heroku link:
+Heroku link: sketchphrase.herokuapp.com
 
 
 

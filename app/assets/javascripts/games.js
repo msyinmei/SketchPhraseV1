@@ -10,7 +10,10 @@ var top;
 var left;
 var players = document.getElementById("playersCount").innerHTML;
 
-
+//prevents modals from being closed when clicking anywhere else but "done" button
+$(function() {
+    $.fn.modal.Constructor.DEFAULTS.backdrop = 'static';
+});
 
 // takes cordinates of top left corner and calculates it again when the widow
 // scrolled down
@@ -21,10 +24,10 @@ $(window).load(function(){
 	top = $(window).scrollTop();
 	left = coord.left;
 
-	
+
 });
 
-	
+
 // calc window height and sets canvas to windwo height times players in game
 (function() {
   	var big_height = (win_y * players);
@@ -217,7 +220,7 @@ writing = function(){
 		});
 			paper.view.draw();
 			$('#myInput').val("");
-			
+
 		} else {
 		var text = new PointText({
 		point: [(win_x/24), (win_y/2)],
@@ -230,12 +233,12 @@ writing = function(){
 	});
 		paper.view.draw();
 		$('#myInput').val("");
-		
+
 	}
 
 };
 
-// text input for first modal 
+// text input for first modal
 writingFirst = function(){
 
 	var userInput = $("#firstInput").val();
@@ -285,7 +288,7 @@ $('#submit').click(function() {
 $('#myInput').on('keyup', function(e) {
     if (e.keyCode === 13) {
         $('#submit').click();
-		
+
     }
 });
 
@@ -301,7 +304,7 @@ $('#firstSubmit').click(function() {
 $('#firstInput').on('keyup', function(e) {
     if (e.keyCode === 13) {
         $('#firstSubmit').click();
-       
+
     }
 });
 
@@ -393,8 +396,6 @@ $(image).attr("src", data);
 $('#resultModal').modal('show');
 
 };
-
-
 
 
 
