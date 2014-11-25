@@ -8,7 +8,7 @@ var win_x = $(window).width();
 var coord;
 var top;
 var left;
-var players = 5;
+var players = document.getElementById("playersCount").innerHTML;
 paper.tool.minDistance = 10;
 
 // takes cordinates of top left corner and calculates it again when the widow
@@ -31,7 +31,7 @@ $(window).load(function(){
   	$('#myCanvas').width(win_x);
   	top = $(window).scrollTop();
 	var topLeft = new paper.Point(0, top); //creates the top left corner of rectangle
-	var rectSize = new paper.Size(win_x, big_height); 
+	var rectSize = new paper.Size(win_x, big_height);
 	var rect = new paper.Path.Rectangle(topLeft, rectSize);
 	rect.fillColor = '#fffff';
 
@@ -64,14 +64,14 @@ function onMouseDrag(event) {
 
 // Toggle listner for button to change from drawing mode to erasing mode
 $( "#eraser" ).click(function() {
-  	color = '#ffffff'; 
+  	color = '#ffffff';
   	width = 30;
   	$("*").removeClass('selected');
 	$(this).addClass('selected');
 });
 
 
-// Click listeners for stroke width buttons 
+// Click listeners for stroke width buttons
 $('#small').click(function(){
 	width = 1;
 	color = '#000000';
@@ -105,14 +105,14 @@ $(window).resize(function(){
 	left = coord.left;
 	$('#myCanvas').attr("width", win_x);
   	$('#myCanvas').width(win_x);
-	
+
 });
 
 // creates a white rectangle based on the window size to clear the shown canvas
 nextTurn = function() {
 	top = $(window).scrollTop();
 	var topLeft = new paper.Point(0, top); //creates the top left corner of rectangle
-	var rectSize = new paper.Size(win_x, win_y); 
+	var rectSize = new paper.Size(win_x, win_y);
 	var rect = new paper.Path.Rectangle(topLeft, rectSize);
 	rect.fillColor = '#fffff';
 };
@@ -120,7 +120,7 @@ nextTurn = function() {
 $('#clear').click(function() {
 
 	$.when(nextTurn()).done(function(){
-	
+
 	});
 });
 
@@ -133,15 +133,15 @@ var allowScrolling;
 $(document).ready(function() {
 	scrollTopPos = $( document ).scrollTop();
     allowScrolling = false;
-    
+
     $(window).scroll(function() {
-    	
+
         if(allowScrolling === false) {
              $( document ).scrollTop( scrollTopPos );
         }
     });
 });
-    
+
 var clicks = 0;
 
 //scrolling based on fixed viewport height
@@ -151,11 +151,11 @@ scrolldown = function(){
 	var newScrollPos = currentHeight + win_y;
 	$('body').animate({scrollTop: newScrollPos}, 800).promise().done(function(){
 	    	noscroll();
-	});   	
+	});
 };
 
 scrollPage = function(){
-	// only scrolls the page based on the number of players 
+	// only scrolls the page based on the number of players
 	if (clicks < (players - 1)) {
 		document.getElementById('done').value = ++clicks;
     	// if number of clicks is an even number then player write
@@ -164,33 +164,33 @@ scrollPage = function(){
     		$('#textModal h1').text('Player: ' + (clicks + 1));
     		$('#textModal h3').text("phrase this sketch!");
 		    $('#textModal').modal('show');
-		    console.log("This is player" + (clicks + 1) );      
-		    
-    	
+		    console.log("This is player" + (clicks + 1) );
+
+
     	}
     	// if number of clicks is an odd number then player draws
-    	// pops up modal that tells the player to write 
+    	// pops up modal that tells the player to write
     	else if (clicks % 2 !== 0){
     		$('#drawingModal h1').text('Player: ' + (clicks + 1));
     		$('#drawingModal h3').text("sketch this phrase!");
-    		$('#drawingModal').modal('show'); 
-    		console.log("This is player" + (clicks + 1) ); 
+    		$('#drawingModal').modal('show');
+    		console.log("This is player" + (clicks + 1) );
     	}
 	}
 	// alerts when game is done(needs to be changed to a modal)
 	else if (clicks === (players - 1)){
-		displayImage(); 
+		displayImage();
 		$('#resultModal').modal('show');
 
 		// $.when(displayImage()).done(function(){
 		// var url = "http://localhost:3000/results";
   //  		window.location.href= url;
 		// });
-		
+
 	}
 };
 
-// disables scrolling 
+// disables scrolling
 noscroll = function(){
 	scrollTopPos = $(window).scrollTop();
     allowScrolling = false;
@@ -259,7 +259,7 @@ var authToken;
 function postImageToFacebook( authToken, filename, mimeType, imageData, message )
 {
     // this is the multipart/form-data boundary we'll use
-    var boundary = '----ThisIsTheBoundary1234567890';   
+    var boundary = '----ThisIsTheBoundary1234567890';
     // let's encode our image file, which is contained in the var
     var formData = '--' + boundary + '\r\n'
     formData += 'Content-Disposition: form-data; name="source"; filename="' + filename + '"\r\n';
@@ -273,7 +273,7 @@ function postImageToFacebook( authToken, filename, mimeType, imageData, message 
     formData += 'Content-Disposition: form-data; name="message"\r\n\r\n';
     formData += message + '\r\n'
     formData += '--' + boundary + '--\r\n';
-    
+
     var xhr = new XMLHttpRequest();
     xhr.open( 'POST', 'https://graph.facebook.com/me/photos?access_token=' + authToken, true );
     xhr.onload = xhr.onerror = function() {
@@ -289,20 +289,20 @@ function postCanvasToFacebook() {
 	var data = canvas.toDataURL("image/png");
 	var encodedPng = data.substring(data.indexOf(',') + 1, data.length);
 	var decodedPng = Base64Binary.decode(encodedPng);
-	
+
 	FB.getLoginStatus(function(response) {
-	  if (response.status === "connected") {	
+	  if (response.status === "connected") {
 		postImageToFacebook(response.authResponse.accessToken, "SketchPhrase", "image/png", decodedPng, "SketchPhrase game results");
 	  } else if (response.status === "not_authorized") {
 		 FB.login(function(response) {
 			postImageToFacebook(response.authResponse.accessToken, "SketchPhrase", "image/png", decodedPng, "SketchPhrase game results");
 		 }, {scope: "publish_stream"});
 	  } else {
-		 FB.login(function(response)  { 
+		 FB.login(function(response)  {
 			postImageToFacebook(response.authResponse.accessToken, "SketchPhrase", "image/png", decodedPng, "SketchPhrase game results");
 		 }, {scope: "publish_stream"});
 	  }
-	 }); 
+	 });
 
 }
 
