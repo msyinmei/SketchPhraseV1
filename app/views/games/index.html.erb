@@ -29,7 +29,8 @@
 </div>
 
 
-<div id="myModal" class="modal-title col-xs-12 container fade in">
+<div id="myModal" class="modal container fade in">
+	<div class="modal-title col-xs-12">
 	  <h1 id="myModalLabel">Player 1</h1>
 	  <div class="modal-body">
 	   <h2><%= @players_count %> Players</h2>
@@ -38,11 +39,12 @@
 	  </div>
   	<br>
 	   	<button type="button" onclick=" writingFirst();" id="firstSubmit" data-dismiss="modal" class="button">GO!</button>
-	   
+	</div>
 </div>
 
 
-<div id="textModal" class="modal-title col-xs-12 container fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="textModal" class="modal container fade in">
+	<div class="modal-title col-xs-12">
 	  <h1 id="myModalLabel">Player 1</h1>
 	  <div class="modal-body">
 	    	<h3>Write a phrase!</h3> 
@@ -51,7 +53,7 @@
 
   	<br>
 	   	<button type="button" onclick="scrolldown(); writing();" id="submit" data-dismiss="modal" class="button">GO!</button>
-	   
+	 </div>  
 </div>
 
 <div id="drawingModal" class="modal container fade in">

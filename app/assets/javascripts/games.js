@@ -17,7 +17,7 @@ $(window).load(function(){
 	coord = $("#myCanvas").position();
 	top = $(window).scrollTop();
 	left = coord.left;
-	yo();
+	console.log("yo");
 });
 
 
@@ -316,7 +316,7 @@ console.log(data);
 
 
 
-localStorage.setItem("imageUrl", decodedPng);
+// localStorage.setItem("imageUrl", decodedPng);
 
 
 var image = document.getElementById('result');
