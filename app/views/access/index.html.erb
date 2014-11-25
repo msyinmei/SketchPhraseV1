@@ -14,7 +14,7 @@
         <li><h4>- etc. etc. etc.</h4></li>
         <li><h4>- last person goes</h4></li>
         <li><h4>- whole phrase/sketch chain is viewable</h4></li>
-        <li><h4>- everybody wins</h4></li>
+        <li><h4>- everybody wins!</h4></li>
       </ul>
     </div>
   </div>
@@ -31,7 +31,7 @@ Hi, <%= current_user.name %>!
         <button type="button" class="plus-minus" id="morePlayers">
           <span>+</span>
         </button>
-        <h3><%= text_field_tag :players_count, 5, :readonly => true %>
+        <h3 { color: rgba(255, 255, 255, 0.9) !important }><%= text_field_tag :players_count, 5, :readonly => true %>
         <%= label_tag :players_count, "Players" %></h3>
         <button type="button" class="plus-minus" id="lessPlayers">
           <span>-</span>
