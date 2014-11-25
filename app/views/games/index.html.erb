@@ -30,17 +30,20 @@
 
 
 <div id="myModal" class="modal container fade in">
-	<div class="modal-title col-xs-12">
+	<div  id="myModal" class="modal-title col-xs-12">
 	  <h1 id="myModalLabel">Player 1</h1>
 	  <div class="modal-body">
 
 
 	   <span id="playersCount"><%= @players_count %></span> <span> Players </span>
 	    	<h3>Write a phrase!</h3>
-	   		<input type="text" id="firstInput" autofocus >
+	    	<form action="javascript:void(0)">
+	   		<input type="text" id="firstInput" maxlength="40" pattern=".{3,40}" required title="3 to 40 characters" autofocus >
+	   		
 	  </div>
   	<br>
-	   	<button type="button" onclick="writingFirst()" id="firstSubmit" data-dismiss="modal" class="button">GO!</button>
+	   	<button type=" button submit" value="submit" id="firstSubmit" class="button">GO!</button>
+	   	</form>
 	</div>
 </div>
 
@@ -51,11 +54,14 @@
 	  <div class="modal-body">
 
 	    	<h3>Write a phrase!</h3> 
-	   		<input type="text" id="myInput" autofocus>
+	   		<form action="javascript:void(0)">
+	   		<input type="text" id="myInput" pattern=".{3,40}" maxlength="40" required title="3 to 40 characters" autofocus >
+	   		
 	  </div>
 
   	<br>
-	   	<button type="button" onclick="scrolldown(); writing();" id="submit" data-dismiss="modal" class="button">GO!</button>
+	   	<button type="button submit" value="submit" id="submit" class="button">GO!</button>
+	   	</form>
 	 </div>
 </div>
 
