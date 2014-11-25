@@ -3,6 +3,7 @@ class GamesController < ApplicationController
   # before_action :confirm_logged_in
 
 	def index
+    gon.fbid = ENV['SKETCHPHRASE_FBID']
     @user = User.find(session[:user_id])
     @games = @user.games
     @game = @games.last
@@ -18,7 +19,7 @@ class GamesController < ApplicationController
         @game.players_count = params[:players_count]
         @game.save
       end
-      redirect_to games_path(@game.id)
+      redirect_to games_path
     end
   end
 

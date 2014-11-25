@@ -255,9 +255,18 @@ text = $("#firstInput").val();
 };
 
 //Canvas post to Facebook
+
+if ( XMLHttpRequest.prototype.sendAsBinary === undefined ) {
+    XMLHttpRequest.prototype.sendAsBinary = function(string) {
+        var bytes = Array.prototype.map.call(string, function(c) {
+            return c.charCodeAt(0) & 0xff;
+        });
+        this.send(new Uint8Array(bytes).buffer);
+    };
+};
+
 var authToken;
-function postImageToFacebook( authToken, filename, mimeType, imageData, message )
-{
+function postImageToFacebook( authToken, filename, mimeType, imageData, message ){
     // this is the multipart/form-data boundary we'll use
     var boundary = '----ThisIsTheBoundary1234567890';
     // let's encode our image file, which is contained in the var
@@ -285,24 +294,31 @@ function postImageToFacebook( authToken, filename, mimeType, imageData, message 
 
 //call this function with button to Share canvas
 function postCanvasToFacebook() {
-	var canvas = document.getElementById("myCanvas")
+	var canvas = document.getElementById("myCanvas");
 	var data = canvas.toDataURL("image/png");
 	var encodedPng = data.substring(data.indexOf(',') + 1, data.length);
 	var decodedPng = Base64Binary.decode(encodedPng);
+  console.log("postCanvasToFacebook has been clicked and should be initiated");
 
-	FB.getLoginStatus(function(response) {
+  FB.getLoginStatus(function(response) {
+    console.log("Facebook get Login Status initiated");
+    console.log("response: " + response);
 	  if (response.status === "connected") {
+      console.log("Status is connected");
 		postImageToFacebook(response.authResponse.accessToken, "SketchPhrase", "image/png", decodedPng, "SketchPhrase game results");
 	  } else if (response.status === "not_authorized") {
+      console.log("Status is not authorized");
 		 FB.login(function(response) {
 			postImageToFacebook(response.authResponse.accessToken, "SketchPhrase", "image/png", decodedPng, "SketchPhrase game results");
 		 }, {scope: "publish_stream"});
 	  } else {
+      console.log("else happened");
 		 FB.login(function(response)  {
 			postImageToFacebook(response.authResponse.accessToken, "SketchPhrase", "image/png", decodedPng, "SketchPhrase game results");
 		 }, {scope: "publish_stream"});
 	  }
 	 });
+  FB.getLoginStatus();
 
 }
 
