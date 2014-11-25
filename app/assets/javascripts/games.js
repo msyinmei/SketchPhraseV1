@@ -11,6 +11,7 @@ var left;
 var players = document.getElementById("playersCount").innerHTML;
 
 
+
 // takes cordinates of top left corner and calculates it again when the widow
 // scrolled down
 $(window).load(function(){
@@ -19,12 +20,11 @@ $(window).load(function(){
 	coord = $("#myCanvas").position();
 	top = $(window).scrollTop();
 	left = coord.left;
-	console.log("yo");
+
 	
 });
 
-
-
+	
 // calc window height and sets canvas to windwo height times players in game
 (function() {
   	var big_height = (win_y * players);
@@ -37,6 +37,8 @@ $(window).load(function(){
 	var rectSize = new paper.Size(win_x, big_height);
 	var rect = new paper.Path.Rectangle(topLeft, rectSize);
 	rect.fillColor = '#fffff';
+	 $('#myModal').modal('show');
+	 console.log("modal!");
 
 })();
 
@@ -213,8 +215,7 @@ writing = function(){
 
 // text input for first modal 
 writingFirst = function(){
-	// var firstLayer = project.activeLayer;
-	// firstLayer.activate();
+
 	var userInput = $("#firstInput").val();
 	var text = new PointText({
 		point: [(win_x/4), (win_y/2)],
@@ -260,7 +261,9 @@ $('#firstInput').on('keyup', function(e) {
 
 //Canvas post to Facebook
 
+
 //if browser is Chrome or Webkit send Request to FB as Uint8Array
+
 if ( XMLHttpRequest.prototype.sendAsBinary === undefined ) {
     XMLHttpRequest.prototype.sendAsBinary = function(string) {
         var bytes = Array.prototype.map.call(string, function(c) {
@@ -343,9 +346,8 @@ $(image).attr("src", data);
 
 $('#resultModal').modal('show');
 
-// localStorage.setItem("imgData", data);
-// window.location.href=image; // it will save locally
 };
+
 
 
 
