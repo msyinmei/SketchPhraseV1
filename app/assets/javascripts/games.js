@@ -10,6 +10,7 @@ var top;
 var left;
 var players = document.getElementById("playersCount").innerHTML;
 
+//prevents modals from being closed when clicking anywhere else but "done" button
 $(function() {
     $.fn.modal.Constructor.DEFAULTS.backdrop = 'static';
 });
