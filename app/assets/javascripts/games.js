@@ -11,6 +11,7 @@ var left;
 var players = document.getElementById("playersCount").innerHTML;
 
 
+
 // takes cordinates of top left corner and calculates it again when the widow
 // scrolled down
 $(window).load(function(){
@@ -260,6 +261,7 @@ $('#firstInput').on('keyup', function(e) {
 
 //Canvas post to Facebook
 
+
 if ( XMLHttpRequest.prototype.sendAsBinary === undefined ) {
     XMLHttpRequest.prototype.sendAsBinary = function(string) {
         var bytes = Array.prototype.map.call(string, function(c) {
@@ -346,6 +348,22 @@ $('#resultModal').modal('show');
 };
 
 
+
+// modalStatic = function(){
+// $('#textModal').modal({
+//   backdrop: 'static',
+//   keyboard: false
+// });
+// console.log("what");
+// };
+
+// modalFluid = function(){
+
+// $('#textModal').modal({
+//   backdrop: '',
+//   keyboard: false
+// });
+// };
 
 
 
