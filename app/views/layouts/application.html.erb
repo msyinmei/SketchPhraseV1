@@ -3,11 +3,6 @@
 <head>
   <title>SketchPhraseV1</title>
 
-<!-- Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
 <!-- Google Fonts -->
 <link href='http://fonts.googleapis.com/css?family=Pacifico|Comfortaa' rel='stylesheet' type='text/css'>
 
@@ -16,25 +11,25 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
   <%= csrf_meta_tags %>
 
+  	<!-- Facebook authorization -->
+	<script type="javascript" src="/assets/access.js"></script>
+
+	<!-- Paper.js script for canvas -->
+	<script type="text/paperscript" src="/assets/games.js" canvas="myCanvas"></script>
+
+
 <!-- Meta tags, that disable pinching and zooming -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 
-<!-- Paper.js script for canvas -->
-<script type="text/paperscript" src="/assets/games.js" canvas="myCanvas"></script>
-
 </head>
 <body>
-
-<!-- Facebook authorization -->
-<script type="javascript" src="/assets/access.js"></script>
 
 
 
 <%= yield %>
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 
 </body>
 </html>

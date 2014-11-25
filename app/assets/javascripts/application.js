@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require bootstrapjs
 //= require paper
 //= require base64binary
+//= require_tree .
+
 
     window.fbAsyncInit = function() {
     FB.init({
