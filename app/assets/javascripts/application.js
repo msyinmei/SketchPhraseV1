@@ -119,24 +119,24 @@
 
 // CODE FOR THE DYNAMIC GRADIENT
 
-var colors = new Array(
-  [62,35,255],
-  [60,255,60],
-  [255,35,98],
-  [45,175,230],
-  [255,0,255],
-  [255,128,0]);
+// var colors = new Array(
+//   [62,35,255],
+//   [60,255,60],
+//   [255,35,98],
+//   [45,175,230],
+//   [255,0,255],
+//   [255,128,0]);
 
-var step = 0;
-//color table indices for: 
-// current color left
-// next color left
-// current color right
-// next color right
-var colorIndices = [0,1,2,3];
+// var step = 0;
+// //color table indices for:
+// // current color left
+// // next color left
+// // current color right
+// // next color right
+// var colorIndices = [0,1,2,3];
 
-//transition speed
-var gradientSpeed = 0.002;
+// //transition speed
+// var gradientSpeed = 0.002;
 
 function updateGradient()
 {
@@ -159,22 +159,22 @@ var color2 = "rgb("+r2+","+g2+","+b2+")";
  $('#dynamic-gradient').css({
    background: "-webkit-gradient(linear, right top, right bottom, from("+color1+"), to("+color2+"))"}).css({
    background: "-moz-linear-gradient(top, "+color1+" 0%, "+color2+" 100%)"});
-  
+
   step += gradientSpeed;
   if ( step >= 1 )
   {
     step %= 1;
     colorIndices[0] = colorIndices[1];
     colorIndices[2] = colorIndices[3];
-    
+
     //pick two new target color indices
     //do not pick the same as the current one
     colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
     colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    
+
   }
 }
 
-setInterval(updateGradient,10);
+// setInterval(updateGradient,10);
 
 var imageUrl;

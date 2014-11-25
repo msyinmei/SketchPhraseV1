@@ -33,9 +33,10 @@
 	<div class="modal-title col-xs-12">
 	  <h1 id="myModalLabel">Player 1</h1>
 	  <div class="modal-body">
-	   <h2><%= @players_count %> Players</h2>
-	    	<h3>Write a phrase!</h3> 
-	   			<input type="text" id="firstInput" autofocus required>
+
+	   <span id="playersCount"><%= @players_count %></span> <span> Players </span>
+	    	<h3>Write a phrase!</h3>
+	   		<input type="text" id="firstInput"  autofocus required>
 	  </div>
   	<br>
 	   	<button type="button" onclick=" writingFirst(); onMouseDown" id="firstSubmit" data-dismiss="modal" class="button">GO!</button>
@@ -47,13 +48,14 @@
 	<div class="modal-title col-xs-12">
 	  <h1 id="myModalLabel">Player 1</h1>
 	  <div class="modal-body">
+
 	    	<h3>Write a phrase!</h3> 
 	   		<input type="text" id="myInput" autofocus>
 	  </div>
 
   	<br>
 	   	<button type="button" onclick="scrolldown(); writing();" id="submit" data-dismiss="modal" class="button">GO!</button>
-	 </div>  
+	 </div>
 </div>
 
 <div id="drawingModal" class="modal container fade in">
@@ -88,6 +90,7 @@
   	<img src="" alt="" id="result">
 
   	<br>
+  	<button type="button" id="share" onclick="postCanvasToFacebook()" class="button">Share</button>
   	<br>
   	<br>
   	<br>
