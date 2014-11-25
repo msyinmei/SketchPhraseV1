@@ -21,10 +21,10 @@ $(window).load(function(){
 	top = $(window).scrollTop();
 	left = coord.left;
 
-	
+
 });
 
-	
+
 // calc window height and sets canvas to windwo height times players in game
 (function() {
   	var big_height = (win_y * players);
@@ -38,7 +38,7 @@ $(window).load(function(){
 	var rect = new paper.Path.Rectangle(topLeft, rectSize);
 	rect.fillColor = '#fffff';
 	 $('#myModal').modal('show');
-	 console.log("modal!");
+
 
 })();
 
@@ -186,6 +186,7 @@ scrollPage = function(){
 	}
 };
 
+
 // disables scrolling
 noscroll = function(){
 	scrollTopPos = $(window).scrollTop();
@@ -199,62 +200,108 @@ writing = function(){
 
 	var currentHeight = $(document).scrollTop();
 	var newScrollPos = currentHeight + win_y;
-	text = $("#myInput").val();
+	var userInput = $("#myInput").val();
+	var inputLength = $("#myInput").val().length;
+	var size = (inputLength * 1.7);
 	coord = $("#myCanvas").position();
+
+	if (inputLength <= 9){
 		var text = new PointText({
-		    point: [(win_x/6), newScrollPos+(win_y/2)],
-		    content: text,
+		    point: [(win_x/2), newScrollPos+(win_y/2)],
+		    content: userInput,
 		    fillColor: 'black',
 		    fontFamily: "'Comfortaa', Helvetica, sans-serif",
 		    fontWeight: 'bold',
-		    fontSize: (win_x/15)
+		    fontSize: (win_x/size),
+		    justification: 'center'
 		});
-		$('#myInput').val("");
-		paper.view.draw();
-	};
+			paper.view.draw();
+			$('#myInput').val("");
 
-// text input for first modal 
-writingFirst = function(){
-
-	var userInput = $("#firstInput").val();
-	var text = new PointText({
-		point: [(win_x/4), (win_y/2)],
+		} else {
+		var text = new PointText({
+		point: [(win_x/24), (win_y/2)],
 	    content: userInput,
 	    fillColor: 'black',
 	    fontFamily: "'Comfortaa', Helvetica, sans-serif",
 	    fontWeight: 'bold',
-	    fontSize: (win_x/10),
-	    justification: 'center'
+	    fontSize: (win_x/26)
+
 	});
-	paper.view.draw();
+		paper.view.draw();
+		$('#myInput').val("");
+
+	}
+
 };
 
-var workCanvas =  project.activeLayer;
+// text input for first modal
+writingFirst = function(){
+
+	var userInput = $("#firstInput").val();
+
+	var inputLength = $("#firstInput").val().length;
+
+	var size = (inputLength * 1.7);
+
+	if (inputLength <= 9){
+	var text = new PointText({
+		point: [(win_x/2), (win_y/1.5)],
+	    content: userInput,
+	    fillColor: 'black',
+	    fontFamily: "'Comfortaa', Helvetica, sans-serif",
+	    fontWeight: 'bold',
+	    fontSize: (win_x/size),
+	    justification: 'center'
+		});
+		paper.view.draw();
+	} else {
+		var text = new PointText({
+		point: [(win_x/24), (win_y/2)],
+	    content: userInput,
+	    fillColor: 'black',
+	    fontFamily: "'Comfortaa', Helvetica, sans-serif",
+	    fontWeight: 'bold',
+	    fontSize: (win_x/26)
+
+	});
+	paper.view.draw();
+	}
+};
+
+
 // adds click listener to enter button
 $('#submit').click(function() {
-    writing();
-    scrolldown();
-    $(workCanvas).click();
-    $("#textField").blur();
+	var inputLength = $("#myInput").val().length;
+	if (inputLength >= 3){
+		writing();
+    	scrolldown();
+ 		$('#textModal').modal('hide');
+	}
+
 
 });
 
 $('#myInput').on('keyup', function(e) {
     if (e.keyCode === 13) {
         $('#submit').click();
-		
+
     }
 });
 
 $('#firstSubmit').click(function() {
+	var inputLength = $("#firstInput").val().length;
+	if (inputLength >= 3 ){
     writingFirst();
-     $(workCanvas).click();
+    $('#myModal').modal('hide');
+
+     }
 });
 
 $('#firstInput').on('keyup', function(e) {
     if (e.keyCode === 13) {
         $('#firstSubmit').click();
-       
+
     }
 });
 
@@ -343,12 +390,9 @@ console.log(data);
 var image = document.getElementById('result');
 $(image).attr("src", data);
 
-
 $('#resultModal').modal('show');
 
 };
-
-
 
 
 
