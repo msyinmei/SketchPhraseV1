@@ -35,10 +35,10 @@
 	  <div class="modal-body">
 	   <h2><%= @players_count %> Players</h2>
 	    	<h3>Write a phrase!</h3> 
-	   		<input type="text" id="firstInput">
+	   			<input type="text" id="firstInput" autofocus required>
 	  </div>
   	<br>
-	   	<button type="button" onclick=" writingFirst();" id="firstSubmit" data-dismiss="modal" class="button">GO!</button>
+	   	<button type="button" onclick=" writingFirst(); onMouseDown" id="firstSubmit" data-dismiss="modal" class="button">GO!</button>
 	</div>
 </div>
 
@@ -48,7 +48,7 @@
 	  <h1 id="myModalLabel">Player 1</h1>
 	  <div class="modal-body">
 	    	<h3>Write a phrase!</h3> 
-	   		<input type="text" id="myInput">
+	   		<input type="text" id="myInput" autofocus>
 	  </div>
 
   	<br>

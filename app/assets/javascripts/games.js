@@ -9,15 +9,18 @@ var coord;
 var top;
 var left;
 var players = 5;
-paper.tool.minDistance = 10;
+//paper.tool.minDistance = 10;
 
 // takes cordinates of top left corner and calculates it again when the widow
 // scrolled down
 $(window).load(function(){
+	paper.install(window);
+	paper.setup("myCanvas");
 	coord = $("#myCanvas").position();
 	top = $(window).scrollTop();
 	left = coord.left;
 	console.log("yo");
+	
 });
 
 
@@ -51,7 +54,6 @@ function onMouseDown(event) {
 	// Add a segment to the path where
 	// you clicked:
 	path.add(event.point);
-
 }
 
 function onMouseDrag(event) {
@@ -115,6 +117,7 @@ nextTurn = function() {
 	var rectSize = new paper.Size(win_x, win_y); 
 	var rect = new paper.Path.Rectangle(topLeft, rectSize);
 	rect.fillColor = '#fffff';
+	paper.view.draw();
 };
 
 $('#clear').click(function() {
@@ -165,8 +168,6 @@ scrollPage = function(){
     		$('#textModal h3').text("phrase this sketch!");
 		    $('#textModal').modal('show');
 		    console.log("This is player" + (clicks + 1) );      
-		    
-    	
     	}
     	// if number of clicks is an odd number then player draws
     	// pops up modal that tells the player to write 
@@ -181,11 +182,6 @@ scrollPage = function(){
 	else if (clicks === (players - 1)){
 		displayImage(); 
 		$('#resultModal').modal('show');
-
-		// $.when(displayImage()).done(function(){
-		// var url = "http://localhost:3000/results";
-  //  		window.location.href= url;
-		// });
 		
 	}
 };
@@ -200,6 +196,7 @@ noscroll = function(){
 
 // writes text on the canvas using prompt(needs to be changed to input modal)
 writing = function(){
+
 	var currentHeight = $(document).scrollTop();
 	var newScrollPos = currentHeight + win_y;
 	text = $("#myInput").val();
@@ -213,46 +210,55 @@ writing = function(){
 		    fontSize: (win_x/15)
 		});
 		$('#myInput').val("");
+		paper.view.draw();
 	};
 
+// text input for first modal 
+writingFirst = function(){
+	// var firstLayer = project.activeLayer;
+	// firstLayer.activate();
+	var userInput = $("#firstInput").val();
+	var text = new PointText({
+		point: [(win_x/4), (win_y/2)],
+	    content: userInput,
+	    fillColor: 'black',
+	    fontFamily: "'Comfortaa', Helvetica, sans-serif",
+	    fontWeight: 'bold',
+	    fontSize: (win_x/10),
+	    justification: 'center'
+	});
+	paper.view.draw();
+};
+
+var workCanvas =  project.activeLayer;
 // adds click listener to enter button
 $('#submit').click(function() {
     writing();
     scrolldown();
+    $(workCanvas).click();
+    $("#textField").blur();
+
 });
 
 $('#myInput').on('keyup', function(e) {
     if (e.keyCode === 13) {
         $('#submit').click();
-         $('#myCanvas').click();
+		
     }
 });
 
 $('#firstSubmit').click(function() {
-    writing();
+    writingFirst();
+     $(workCanvas).click();
 });
 
 $('#firstInput').on('keyup', function(e) {
     if (e.keyCode === 13) {
         $('#firstSubmit').click();
-         $('#myCanvas').click();
+       
     }
 });
 
-
-writingFirst = function(){
-
-text = $("#firstInput").val();
-	var text = new PointText({
-		point: [(win_x/4), (win_y/2)],
-	    content: text,
-	    fillColor: 'black',
-	    fontFamily: "'Comfortaa', Helvetica, sans-serif",
-	    fontWeight: 'bold',
-	    fontSize: (win_x/10)
-	});
-		$('#firstInput').val("");
-};
 
 //Canvas post to Facebook
 var authToken;
@@ -330,6 +336,22 @@ $('#resultModal').modal('show');
 };
 
 
+
+// modalStatic = function(){
+// $('#textModal').modal({
+//   backdrop: 'static',
+//   keyboard: false
+// });
+// console.log("what");
+// };
+
+// modalFluid = function(){
+
+// $('#textModal').modal({
+//   backdrop: '',
+//   keyboard: false
+// });
+// };
 
 
 
