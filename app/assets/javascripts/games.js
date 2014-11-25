@@ -305,17 +305,19 @@ function postCanvasToFacebook() {
     console.log("response: " + response);
 	  if (response.status === "connected") {
       console.log("Status is connected");
-		postImageToFacebook(response.authResponse.accessToken, "SketchPhrase", "image/png", decodedPng, "SketchPhrase game results");
+      FB.login(function(response) {
+      postImageToFacebook(response.authResponse.accessToken, "SketchPhrase", "image/png", decodedPng, "SketchPhrase game results");
+     }, {scope: "publish_actions"});
 	  } else if (response.status === "not_authorized") {
       console.log("Status is not authorized");
 		 FB.login(function(response) {
 			postImageToFacebook(response.authResponse.accessToken, "SketchPhrase", "image/png", decodedPng, "SketchPhrase game results");
-		 }, {scope: "publish_stream"});
+		 }, {scope: "publish_actions"});
 	  } else {
       console.log("else happened");
 		 FB.login(function(response)  {
 			postImageToFacebook(response.authResponse.accessToken, "SketchPhrase", "image/png", decodedPng, "SketchPhrase game results");
-		 }, {scope: "publish_stream"});
+		 }, {scope: "publish_actions"});
 	  }
 	 });
   FB.getLoginStatus();
